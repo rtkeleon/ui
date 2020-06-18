@@ -43,7 +43,11 @@ export {
   SiderProps,
 } from './components/layout/Layout';
 
-export { FormItem, FormItemProps } from './components/formItem/FormItem';
+export {
+  FormItem,
+  FormItemProps,
+  Status,
+} from './components/formItem/FormItem';
 
 export { Modal, ModalProps } from './components/modal/Modal';
 
