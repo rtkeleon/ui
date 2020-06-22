@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import * as React from 'react';
 import { MouseEventHandler } from 'react';
 import styled, { css } from 'styled-components';
@@ -47,21 +49,21 @@ export const StyledButton = styled.button<StyledButtonProps>`
     
    -webkit-tap-highlight-color: transparent;
    
-   // ----------- Size Small --------- //
+   /* // ----------- Size Small --------- // */
     ${customProps.size === 'small' &&
       css`
         font-size: ${theme.buttonSmallFontSize};
         height: ${theme.buttonSmallHeight};
       `}
     
-   // ----------- Size Large --------- //
+   /* // ----------- Size Large --------- // */
     ${customProps.size === 'large' &&
       css`
         font-size: ${theme.buttonLargeFontSize};
         height: ${theme.buttonLargeHeight};
       `}
 
-    // ----------- Primary --------- //
+    /* // ----------- Primary --------- // */
     ${buttonType === 'primary' &&
       css`
         background: ${theme.buttonPrimaryBackground};
@@ -94,6 +96,17 @@ export const StyledButton = styled.button<StyledButtonProps>`
               border-color: transparent;
             }
 
+            ${customProps.loading &&
+              css`
+                &:hover,
+                &:focus {
+                  background: ${theme.buttonGhostBackground};
+                  border: ${theme.buttonGhostBorder};
+                  border-color: ${theme.buttonPrimaryBackground};
+                  color: ${theme.buttonPrimaryBackground};
+                }
+              `}
+
             &:active {
               border: ${theme.buttonGhostBorder};
               border-color: transparent;
@@ -101,7 +114,7 @@ export const StyledButton = styled.button<StyledButtonProps>`
           `}
       `};
 
-      // ----------- Secondary --------- //
+      /* // ----------- Secondary --------- // */
       ${buttonType === 'secondary' &&
         css`
           background: ${theme.buttonSecondaryBackground};
@@ -141,7 +154,7 @@ export const StyledButton = styled.button<StyledButtonProps>`
             `}
         `};
 
-      // ----------- Tertiary --------- //
+      /* ----------- Tertiary --------- */
       ${buttonType === 'tertiary' &&
         css`
           background: ${theme.buttonTertiaryBackground};
@@ -181,7 +194,7 @@ export const StyledButton = styled.button<StyledButtonProps>`
             `}
         `};
     
-    // ----------- Danger --------- //
+    /* // ----------- Danger --------- // */
     ${buttonType === 'danger' &&
       css`
         background: ${theme.buttonDangerBackground};
@@ -221,7 +234,7 @@ export const StyledButton = styled.button<StyledButtonProps>`
           `};
       `};
     
-    // ----------- Link --------- //
+    /* // ----------- Link --------- // */
     ${buttonType === 'link' &&
       css`
         background: ${theme.buttonLinkBackground};
@@ -249,7 +262,7 @@ export const StyledButton = styled.button<StyledButtonProps>`
         opacity: 0.5;
       `};
 
-    // ----------- Circle --------- //
+    /* // ----------- Circle --------- // */
     ${customProps.shape === 'circle' &&
       css`
       padding: 0;
