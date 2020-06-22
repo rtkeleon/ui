@@ -1,5 +1,3 @@
-// @ts-nocheck
-
 import * as React from 'react';
 import { MouseEventHandler } from 'react';
 import styled, { css } from 'styled-components';
