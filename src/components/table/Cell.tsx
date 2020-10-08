@@ -22,7 +22,7 @@ interface StyledCellProps {
 }
 
 const StyledCell = styled.div<StyledCellProps>`
-  ${({ theme, justify, header }) => css`
+  ${({ theme, justify, header }) => css<StyledCellProps>`
     display: flex;
     flex-direction: row;
     align-items: center;

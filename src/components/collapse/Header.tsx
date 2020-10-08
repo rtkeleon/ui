@@ -42,7 +42,7 @@ const HeaderIconContainer = styled.div`
 `;
 
 const StyledHeader = styled.div<StyledHeaderProps>`
-  ${({ customProps, theme }) => css`
+  ${({ customProps, theme }) => css<StyledHeaderProps>`
     display: grid;
     grid-template-columns: auto 0.2fr;
     align-items: center;

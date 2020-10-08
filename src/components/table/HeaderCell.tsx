@@ -43,7 +43,7 @@ const getSortState = (currentState: string): SortState => {
 };
 
 const StyledCell = styled(Cell)<StyledCellProps>`
-  ${({ theme, sortable }) => css`
+  ${({ theme, sortable }) => css<StyledCellProps>`
     transition: background ${theme.animationTimeFast}s ease-in-out;
 
     ${sortable &&

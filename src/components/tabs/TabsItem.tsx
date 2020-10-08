@@ -22,7 +22,13 @@ export interface TabsItemProps {
 }
 
 const Container = styled.div`
-  ${({ theme, isSelected }: { theme: GlobalTheme; isSelected: boolean }) => css`
+  ${({
+    theme,
+    isSelected,
+  }: {
+    theme: GlobalTheme;
+    isSelected: boolean;
+  }) => css<{ theme: GlobalTheme; isSelected: boolean }>`
     cursor: pointer;
     box-sizing: border-box;
     user-select: none;
@@ -45,7 +51,7 @@ const Container = styled.div`
 `;
 
 const TabBody = styled(Typography.Body)`
-  ${({ theme }: { theme: GlobalTheme }) => css`
+  ${({ theme }: { theme: GlobalTheme }) => css<{ theme: GlobalTheme }>`
     color: ${theme.colors.tabItemHorizontal};
   `}
 `;

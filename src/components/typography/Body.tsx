@@ -22,7 +22,7 @@ interface StyledBodyProps {
 }
 
 const StyledBody = styled.div<StyledBodyProps>`
-  ${({ disabled, theme }) => css`
+  ${({ disabled, theme }) => css<StyledBodyProps>`
     color: ${theme.typographyBodyColor};
     font-family: ${theme.typographyBodyFontFamily};
     font-size: ${theme.typographyBodyFontSize};

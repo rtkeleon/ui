@@ -51,7 +51,7 @@ export interface CollapseProps {
 }
 
 const Container = styled.div<{ disabled?: boolean }>`
-  ${({ disabled, theme }) => css`
+  ${({ disabled, theme }) => css<{ disabled?: boolean }>`
     ${disabled &&
       css`
         pointer-events: none;

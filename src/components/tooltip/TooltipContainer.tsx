@@ -30,7 +30,9 @@ interface TooltipContentProps {
 }
 
 export const TooltipContent = styled.div`
-  ${({ placement, gap, theme }: TooltipContentProps) => css`
+  ${({ placement, gap, theme }: TooltipContentProps) => css<
+    TooltipContentProps
+  >`
     position: relative;
 
     ${(placement === 'top' ||
@@ -67,8 +69,8 @@ export const TooltipContent = styled.div`
   `}
 `;
 
-export const OverlayContainer = styled.div`
-  ${({ theme }: OverlayContainerProps) => css`
+export const OverlayContainer = styled.div<OverlayContainerProps>`
+  ${({ theme }) => css<OverlayContainerProps>`
     background: ${theme.colors.primaryBackground};
     box-shadow: ${theme.tooltipBoxShadow};
     border-radius: ${theme.tooltipBorderRadius};
@@ -77,8 +79,8 @@ export const OverlayContainer = styled.div`
   `}
 `;
 
-export const Arrow = styled.div`
-  ${({ placement, theme }: ArrowProps) => css`
+export const Arrow = styled.div<ArrowProps>`
+  ${({ placement, theme }) => css<ArrowProps>`
     position: absolute;
     width: ${theme.tooltipArrowSize};
     height: ${theme.tooltipArrowSize};

@@ -46,7 +46,7 @@ export const Tooltip: React.FunctionComponent<TooltipProps> = ({
   overlay,
   visible,
 }) => {
-  const [, forceRerender] = React.useState();
+  const [, forceRerender] = React.useState<object>({});
   const [open, setOpen] = React.useState(false);
   const triggerRef = React.useRef(null);
 

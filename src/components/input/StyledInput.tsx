@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 import styled, { css } from 'styled-components';
 
 import { GlobalTheme } from '../../theme/types';
@@ -8,9 +10,11 @@ import { Status } from '../formItem/FormItem';
 
 import { Typography } from '../typography/Typography';
 
-interface StyledInputProps extends InputProps {
-  inputSize?: InputSize;
+interface StyledInputProps extends Omit<InputProps, 'size'> {
   status?: Status;
+  inputSize?: InputSize;
+  type?: 'text' | 'textarea' | 'number' | 'password';
+  theme?: GlobalTheme;
 }
 
 export const Container = styled.div`
@@ -18,7 +22,7 @@ export const Container = styled.div`
 `;
 
 export const Label = styled(Typography.Label)<{ required?: boolean }>`
-  ${({ theme, required }) => css`
+  ${({ theme, required }) => css<{ required?: boolean }>`
     ${required &&
       css`
         ::before {
@@ -42,9 +46,12 @@ export const AffixContainer = styled.div`
 
 export const Prefix = styled.div<{
   theme: GlobalTheme;
-  inputSize?: InputSize;
+  size?: InputSize;
 }>`
-  ${({ theme, inputSize }) => css`
+  ${({ theme, size }) => css<{
+    theme: GlobalTheme;
+    size?: InputSize;
+  }>`
     position: absolute;
     display: flex;
     align-items: center;
@@ -57,7 +64,7 @@ export const Prefix = styled.div<{
       height: ${theme.inputDefaultFontSize}px;
     }
 
-    ${inputSize === 'small' &&
+    ${size === 'small' &&
       css`
         height: ${theme.inputSmallHeight};
 
@@ -67,7 +74,7 @@ export const Prefix = styled.div<{
         }
       `}
 
-    ${inputSize === 'large' &&
+    ${size === 'large' &&
       css`
         height: ${theme.inputLargeHeight};
 
@@ -83,8 +90,8 @@ export const FeedbackMessage = styled.div`
   height: ${({ theme }) => theme.inputStatusMessageHeight};
 `;
 
-export const StyledInput = styled.input<StyledInputProps>`
-  ${({ borderType, theme, type, inputSize, status }) => css`
+const inputStyles = css<StyledInputProps>`
+  ${({ borderType, theme, type, inputSize, status }) => css<StyledInputProps>`
     height: ${theme.inputDefaultHeight};               
     font-size: ${theme.inputDefaultFontSize}px;
     
@@ -195,3 +202,21 @@ export const StyledInput = styled.input<StyledInputProps>`
     }
   `};
 `;
+
+const InputWithStyles = styled.input<StyledInputProps>`
+  ${inputStyles}
+`;
+
+const TextAreaWithStyles = styled.textarea<StyledInputProps>`
+  ${inputStyles}
+`;
+
+export const StyledInput = (props: StyledInputProps) => {
+  const { type } = props;
+
+  if (type === 'textarea') {
+    return <TextAreaWithStyles {...props} />;
+  }
+
+  return <InputWithStyles {...props} />;
+};

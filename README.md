@@ -30,7 +30,7 @@ Welcome developers! If you wish to help out with `rtkwlf/ui` then follow these i
 
 1. Fork the repo
 2. Install the dependencies: `npm install`
-3. Start the development server: `npm run storybook`
+3. Start the development server: `npm start`
 4. Make all the changes you want :)
 5. Put up a PR with your changes from your fork and make sure the github actions have passed.
 

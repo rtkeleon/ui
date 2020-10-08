@@ -24,7 +24,7 @@ interface StyledButtonProps {
 }
 
 export const StyledButton = styled.button<StyledButtonProps>`
-  ${({ buttonType, customProps, disabled, theme }) => css`
+  ${({ buttonType, customProps, disabled, theme }) => css<StyledButtonProps>`
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -81,7 +81,7 @@ export const StyledButton = styled.button<StyledButtonProps>`
         }
 
         ${customProps.ghost &&
-          css`
+          css<StyledButtonProps>`
             background: ${theme.buttonGhostBackground};
             border: ${theme.buttonGhostBorder};
             border-color: ${theme.buttonPrimaryBackground};
@@ -114,7 +114,7 @@ export const StyledButton = styled.button<StyledButtonProps>`
 
       /* // ----------- Secondary --------- // */
       ${buttonType === 'secondary' &&
-        css`
+        css<StyledButtonProps>`
           background: ${theme.buttonSecondaryBackground};
           color: ${theme.buttonSecondaryColor};
           border: ${theme.buttonSecondaryBorder};
@@ -154,7 +154,7 @@ export const StyledButton = styled.button<StyledButtonProps>`
 
       /* ----------- Tertiary --------- */
       ${buttonType === 'tertiary' &&
-        css`
+        css<StyledButtonProps>`
           background: ${theme.buttonTertiaryBackground};
           color: ${theme.buttonTertiaryColor};
           border: ${theme.buttonTertiaryBorder};
@@ -194,7 +194,7 @@ export const StyledButton = styled.button<StyledButtonProps>`
     
     /* // ----------- Danger --------- // */
     ${buttonType === 'danger' &&
-      css`
+      css<StyledButtonProps>`
         background: ${theme.buttonDangerBackground};
         border: ${theme.buttonDangerBorder};
         border-color: ${theme.buttonDangerBorderColor};
@@ -234,7 +234,7 @@ export const StyledButton = styled.button<StyledButtonProps>`
     
     /* // ----------- Link --------- // */
     ${buttonType === 'link' &&
-      css`
+      css<StyledButtonProps>`
         background: ${theme.buttonLinkBackground};
         border: ${theme.buttonLinkBorder};
         border-color: ${theme.buttonLinkBorderColor};
@@ -262,7 +262,7 @@ export const StyledButton = styled.button<StyledButtonProps>`
 
     /* // ----------- Circle --------- // */
     ${customProps.shape === 'circle' &&
-      css`
+      css<StyledButtonProps>`
       padding: 0;
       min-width: ${theme.buttonDefaultHeight};
       text-align: center;

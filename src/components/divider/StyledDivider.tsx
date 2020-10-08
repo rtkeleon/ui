@@ -26,11 +26,11 @@ export const StyledLi = styled.li<{ orientation: Orientation }>`
 `;
 
 export const StyledDivider = styled.hr<StyledDividerProps>`
-  ${({ customProps, theme, height }) => css`
+  ${({ customProps, theme, height }) => css<StyledDividerProps>`
     width: 100%;
     color: ${theme.dividerTextColor}
       ${customProps.orientation === 'vertical' &&
-        css`
+        css<StyledDividerProps>`
           margin: 2px 5px 0 5px;
           width: auto;
           color: ${theme.dividerBorder};
@@ -45,7 +45,7 @@ export const StyledDivider = styled.hr<StyledDividerProps>`
     ${(customProps.orientation === 'horizontal' || !customProps.orientation) &&
       css`
         ${customProps.margin &&
-          css`
+          css<StyledDividerProps>`
             margin: ${customProps.margin} 0;
             color: ${theme.dividerBorder};
           `}
@@ -63,7 +63,7 @@ export const StyledDivider = styled.hr<StyledDividerProps>`
       `};
 
     ${customProps.text &&
-      css`
+      css<StyledDividerProps>`
         position: relative;
         line-height: 1rem;
         outline: 0;

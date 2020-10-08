@@ -41,7 +41,7 @@ export interface InputProps {
   onClick?: React.EventHandler<React.SyntheticEvent>;
 
   /** Function to handle change event */
-  onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  onChange?: React.EventHandler<React.SyntheticEvent>;
 
   /** Function to handle focus event */
   onFocus?: React.EventHandler<React.SyntheticEvent>;
@@ -56,7 +56,7 @@ export interface InputProps {
   size?: InputSize;
 
   /** Ref to be passed to the input */
-  ref?: React.Ref<HTMLInputElement> | null;
+  ref?: React.Ref<any> | null;
 
   /** If true, the input will be marked as required in the label */
   required?: boolean;
@@ -110,7 +110,6 @@ export const Input: React.FunctionComponent<InputProps> = React.forwardRef<
         disabled={disabled}
         defaultValue={defaultValue}
         type={htmlType}
-        as={htmlType === 'textarea' ? 'textarea' : undefined}
         id={id}
         name={name}
         onBlur={onBlur}

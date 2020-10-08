@@ -29,7 +29,7 @@ const LoadingContainer = styled(motion.div)`
   justify-content: center;
 `;
 
-const LoadingMask = styled.div`
+const LoadingMask = styled.div<{ theme: GlobalTheme }>`
   ${({ theme }: { theme: GlobalTheme }) => css`
     height: 100%;
     width: 100%;
