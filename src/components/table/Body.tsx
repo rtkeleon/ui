@@ -66,7 +66,7 @@ const EmptyContentContainer = styled.div`
   `}
 `;
 
-export const Body = <T extends any>(props: BodyProps<T>) => {
+export const Body = <T extends {}>(props: BodyProps<T>) => {
   const {
     columns,
     data,
@@ -118,7 +118,7 @@ export const Body = <T extends any>(props: BodyProps<T>) => {
       <TR
         theme={theme}
         key={index}
-        selected={selectedRowKey === d[dataUniqueKey]}
+        selected={selectedRowKey ? selectedRowKey === d[dataUniqueKey] : false}
         onClick={e => handleClick(e, d)}
       >
         {columns.map(c => {

@@ -84,7 +84,7 @@ const TableContainer = styled.table`
   border-spacing: 0;
 `;
 
-export const Table = <T extends any>(props: TableProps<T>) => {
+export const Table = <T extends {}>(props: TableProps<T>) => {
   const [sortedColumn, setSortedColumn] = React.useState(null);
 
   const {
