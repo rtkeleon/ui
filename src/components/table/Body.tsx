@@ -8,7 +8,7 @@ import { Typography } from '../typography/Typography';
 
 import { Cell } from './Cell';
 
-import { ColumnProps } from './Table';
+import { ColumnProps, OnRowProps } from './Table';
 
 import { GlobalTheme } from '../../theme/types';
 
@@ -16,6 +16,8 @@ interface BodyProps<T> {
   columns: ColumnProps<T>[];
   data: T[];
   emptyComponent?: React.ReactNode;
+  onRow?: OnRowProps<T>;
+  selectedRowKey?: string | number;
 }
 
 const TD = styled.td<{
@@ -24,6 +26,29 @@ const TD = styled.td<{
   ${({ theme }) => css`
     border-bottom: ${theme.tableBodyRowBorder};
     border-color: ${theme.tableBodyRowBorderColor};
+  `}
+`;
+
+const TR = styled.tr<{
+  theme: GlobalTheme;
+  selected: boolean;
+}>`
+  ${({ theme, selected }) => css`
+    cursor: default;
+
+    &:hover {
+      background: ${theme.colors.hoverBackground};
+    }
+
+    ${selected &&
+      css<{
+        theme: GlobalTheme;
+        selected: boolean;
+      }>`
+        background: ${theme.colors.quaternaryBackground};
+      `};
+
+    transition: background ${theme.animationTimeVeryFast}s ease-in-out;
   `}
 `;
 
@@ -37,10 +62,21 @@ const EmptyContentContainer = styled.div`
   `}
 `;
 
-export const Body = <T extends any = any>(props: BodyProps<T>) => {
-  const { columns, data, emptyComponent } = props;
+export const Body = <T extends { key: string | number }>(
+  props: BodyProps<T>
+) => {
+  const { columns, data, emptyComponent, onRow, selectedRowKey } = props;
 
   const theme = useTheme();
+
+  const handleClick = React.useCallback(
+    (e, d) => {
+      if (onRow && onRow.onClick) {
+        onRow.onClick(e, d);
+      }
+    },
+    [onRow]
+  );
 
   const renderDataIndex = React.useCallback((column, data) => {
     if (column.dataIndex == null) {
@@ -70,7 +106,12 @@ export const Body = <T extends any = any>(props: BodyProps<T>) => {
     }
 
     return data.map((d, index) => (
-      <tr key={index}>
+      <TR
+        theme={theme}
+        key={index}
+        selected={selectedRowKey === d.key}
+        onClick={e => handleClick(e, d)}
+      >
         {columns.map(c => {
           const Renderer = c.render;
           return (
@@ -87,9 +128,17 @@ export const Body = <T extends any = any>(props: BodyProps<T>) => {
             </TD>
           );
         })}
-      </tr>
+      </TR>
     ));
-  }, [data, columns, emptyComponent, renderDataIndex, theme]);
+  }, [
+    data,
+    columns,
+    emptyComponent,
+    renderDataIndex,
+    theme,
+    selectedRowKey,
+    handleClick,
+  ]);
 
   return <tbody>{renderBodyCell()}</tbody>;
 };

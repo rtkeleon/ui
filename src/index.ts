@@ -112,6 +112,7 @@ export {
   TableProps,
   ColumnProps,
   Justify,
+  OnRowProps,
 } from './components/table/Table';
 
 export {

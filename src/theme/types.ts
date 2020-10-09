@@ -8,6 +8,7 @@ export interface Colors {
   disabledBackground: string;
   gray: string;
   green: string;
+  hoverBackground: string;
   label: string;
   orange: string;
   primary: string;

@@ -1,5 +1,7 @@
 import { Colors } from './types';
 
+import { rgba } from 'polished';
+
 export const colors: Colors = {
   black: '#000000',
   body: '#000000',
@@ -10,12 +12,13 @@ export const colors: Colors = {
   disabledBackground: '#CCCCCC',
   gray: '#58595B',
   green: '#518042',
+  hoverBackground: rgba('#58595B', 0.2),
   label: '#000000',
   orange: '#F58220',
   primary: '#23618E',
   primaryBackground: '#FFFFFF',
   purple: '#893391',
-  quaternaryBackground: '#E0F2FE',
+  quaternaryBackground: rgba('#23618E', 0.3),
   red: '#C43836',
   secondary: '#58595B',
   secondaryBackground: '#F1F1F1',

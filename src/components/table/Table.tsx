@@ -13,6 +13,10 @@ import { TableLoading } from './TableLoading';
 
 export type Justify = 'flex-start' | 'center' | 'flex-end';
 
+export interface OnRowProps<T> {
+  onClick: (e: React.SyntheticEvent<HTMLElement>, record: T) => void;
+}
+
 export interface ColumnProps<T> {
   /** unique key of the column */
   key: string | number;
@@ -34,9 +38,12 @@ export interface ColumnProps<T> {
 
   /** if true, the column will be sortable and be provided in the `onSort` callback when clicked */
   sortable?: boolean;
+
+  /** if true, the column will be visible */
+  visible?: boolean;
 }
 
-export interface TableProps<T> {
+export interface TableProps<T extends { key: string | number }> {
   /** className of the table component */
   className?: string;
 
@@ -55,8 +62,14 @@ export interface TableProps<T> {
   /** component to render when there is data in the table is being fetched */
   loadingComponent?: React.ReactNode;
 
+  /** events to call on a row which will return the record of the clicked row. onClick is the only support event right now. */
+  onRow?: OnRowProps<T>;
+
   /** callback that is called when a column is clicked to sort */
   onSort?: (key: string, state: SortState) => void;
+
+  /** for styling purposes, set the selectedRowKey to highlight a row that a user has interacted with. */
+  selectedRowKey?: string | number;
 }
 
 const Container = styled.div`
@@ -68,7 +81,9 @@ const TableContainer = styled.table`
   border-spacing: 0;
 `;
 
-export const Table = <T extends any = any>(props: TableProps<T>) => {
+export const Table = <T extends { key: string | number }>(
+  props: TableProps<T>
+) => {
   const [sortedColumn, setSortedColumn] = React.useState(null);
 
   const {
@@ -78,7 +93,9 @@ export const Table = <T extends any = any>(props: TableProps<T>) => {
     emptyComponent,
     loading,
     loadingComponent,
+    onRow,
     onSort,
+    selectedRowKey,
   } = props;
 
   const handleSort = React.useCallback(
@@ -106,6 +123,8 @@ export const Table = <T extends any = any>(props: TableProps<T>) => {
           columns={columns}
           data={data}
           emptyComponent={emptyComponent}
+          onRow={onRow}
+          selectedRowKey={selectedRowKey}
         />
       </TableContainer>
     </Container>

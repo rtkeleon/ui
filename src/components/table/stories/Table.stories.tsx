@@ -50,6 +50,8 @@ export const simple = () => {
     address: string;
   }
 
+  const [selectedRow, setSelectedRow] = React.useState();
+
   const data: User[] = [
     {
       key: '1',
@@ -103,7 +105,18 @@ export const simple = () => {
     },
   ];
 
-  return <Table<User> data={data} columns={columns} />;
+  const onClick = React.useCallback((_, record) => {
+    setSelectedRow(record.key);
+  }, []);
+
+  return (
+    <Table<User>
+      data={data}
+      columns={columns}
+      onRow={{ onClick }}
+      selectedRowKey={selectedRow}
+    />
+  );
 };
 
 export const sortable = () => {

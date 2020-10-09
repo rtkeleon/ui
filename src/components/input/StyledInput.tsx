@@ -55,10 +55,8 @@ export const Prefix = styled.div<{
     position: absolute;
     display: flex;
     align-items: center;
-
     height: ${theme.inputDefaultHeight};
     left: ${theme.inputPrefixLeft};
-
     svg {
       width: ${theme.inputDefaultFontSize}px;
       height: ${theme.inputDefaultFontSize}px;
@@ -67,7 +65,6 @@ export const Prefix = styled.div<{
     ${size === 'small' &&
       css`
         height: ${theme.inputSmallHeight};
-
         svg {
           width: ${theme.inputSmallFontSize}px;
           height: ${theme.inputSmallFontSize}px;
@@ -77,7 +74,6 @@ export const Prefix = styled.div<{
     ${size === 'large' &&
       css`
         height: ${theme.inputLargeHeight};
-
         svg {
           width: ${theme.inputLargeFontSize}px;
           height: ${theme.inputLargeFontSize}px;
@@ -107,7 +103,6 @@ const inputStyles = css<StyledInputProps>`
     border-color: ${theme.inputBorderColor};
     border-radius: ${theme.inputBorderRadius};
     border-color: ${theme.inputBorderColor};
-
     box-sizing: border-box;
     
     transition: border ${theme.animationTimeFast}s;
@@ -123,7 +118,6 @@ const inputStyles = css<StyledInputProps>`
         height: ${theme.inputLargeHeight};
         font-size: ${theme.inputLargeFontSize}px;
       `}
-
     ${type === 'textarea' &&
       css`
         height: 6em;
@@ -148,12 +142,10 @@ const inputStyles = css<StyledInputProps>`
         border: none;
         color: ${theme.inputColor};
       `};
-
     ${status === 'error' &&
       css`
         border-color: ${theme.inputStatusErrorBorderColor};
       `};
-
     ${status === 'success' &&
       css`
         border-color: ${theme.inputStatusSuccessBorderColor};
@@ -168,36 +160,29 @@ const inputStyles = css<StyledInputProps>`
       css`
         border-color: ${theme.inputStatusLoadingBorderColor};
       `};
-
     &:read-only {
       cursor: pointer;
     }
-
     &::placeholder {
       color: ${theme.inputPlaceholderColor};
     }
-
     &:disabled {
       background: ${theme.inputDisabledBackground};
       cursor: not-allowed;
       opacity: 0.5;
     }
-
     &:focus {
       border-color: ${theme.inputFocusBorderColor};
-
       ${borderType === 'bottom' &&
         css`
           border: none;
           border-bottom: 1px solid ${theme.inputFocusBorderColor};
           border-radius: 0;
         `};
-
       ${borderType === 'none' &&
         css`
           border: none;
         `};
-
       outline: none;
     }
   `};
