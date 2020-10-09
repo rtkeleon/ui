@@ -36,14 +36,18 @@ describe('Table', () => {
   ];
 
   it('renders', () => {
-    const wrapper = shallow(<Table columns={columns} data={data} />);
+    const wrapper = shallow(
+      <Table dataUniqueKey={'name'} columns={columns} data={data} />
+    );
 
     expect(wrapper.find('TableHead')).toExist();
     expect(wrapper.find('TableBody')).toExist();
   });
 
   it('renders the dataIndex', () => {
-    const wrapper = mount(<Table columns={columns} data={data} />);
+    const wrapper = mount(
+      <Table dataUniqueKey={'name'} columns={columns} data={data} />
+    );
 
     expect(
       wrapper
@@ -55,7 +59,9 @@ describe('Table', () => {
   });
 
   it('renders a custom renderer', () => {
-    const wrapper = mount(<Table columns={columns} data={data} />);
+    const wrapper = mount(
+      <Table dataUniqueKey={'name'} columns={columns} data={data} />
+    );
 
     expect(wrapper.find('#test')).toExist();
     expect(wrapper.find('#test')).toHaveText(data[0].age.toString());
@@ -63,14 +69,21 @@ describe('Table', () => {
 
   it('renders a the empty state when there is no data', () => {
     const wrapper = mount(
-      <Table columns={columns} data={data} emptyComponent={<div id="test" />} />
+      <Table
+        dataUniqueKey={'name'}
+        columns={columns}
+        data={data}
+        emptyComponent={<div id="test" />}
+      />
     );
 
     expect(wrapper.find('#test')).toExist();
   });
 
   it('renders loading state when loading is true', () => {
-    const wrapper = mount(<Table columns={columns} data={data} loading />);
+    const wrapper = mount(
+      <Table dataUniqueKey={'name'} columns={columns} data={data} loading />
+    );
 
     expect(wrapper.find('Loading')).toExist();
   });
@@ -80,6 +93,7 @@ describe('Table', () => {
       <Table
         columns={columns}
         data={data}
+        dataUniqueKey={'name'}
         loading
         loadingComponent={<div id="test" />}
       />
@@ -95,6 +109,7 @@ describe('Table', () => {
       <Table
         columns={columns}
         data={data}
+        dataUniqueKey={'name'}
         onSort={(key, state) => onSortMock(key, state)}
       />
     );
@@ -123,7 +138,9 @@ describe('Table', () => {
 
   describe('Table Columns', () => {
     it('renders the title', () => {
-      const wrapper = mount(<Table columns={columns} data={data} />);
+      const wrapper = mount(
+        <Table dataUniqueKey={'name'} columns={columns} data={data} />
+      );
 
       expect(
         wrapper
@@ -135,7 +152,9 @@ describe('Table', () => {
     });
 
     it('sets the width prop', () => {
-      const wrapper = mount(<Table columns={columns} data={data} />);
+      const wrapper = mount(
+        <Table dataUniqueKey={'name'} columns={columns} data={data} />
+      );
 
       expect(
         wrapper
@@ -146,7 +165,9 @@ describe('Table', () => {
     });
 
     it('sets the sortable prop', () => {
-      const wrapper = mount(<Table columns={columns} data={data} />);
+      const wrapper = mount(
+        <Table dataUniqueKey={'name'} columns={columns} data={data} />
+      );
 
       expect(
         wrapper

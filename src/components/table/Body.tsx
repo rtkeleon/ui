@@ -15,6 +15,7 @@ import { GlobalTheme } from '../../theme/types';
 interface BodyProps<T> {
   columns: ColumnProps<T>[];
   data: T[];
+  dataUniqueKey: string | number;
   emptyComponent?: React.ReactNode;
   onRow?: OnRowProps<T>;
   selectedRowKey?: string | number;
@@ -37,7 +38,10 @@ const TR = styled.tr<{
     cursor: default;
 
     &:hover {
-      background: ${theme.colors.hoverBackground};
+      ${!selected &&
+        css<{ theme: GlobalTheme }>`
+          background: ${theme.colors.hoverBackground};
+        `}
     }
 
     ${selected &&
@@ -62,10 +66,15 @@ const EmptyContentContainer = styled.div`
   `}
 `;
 
-export const Body = <T extends { key: string | number }>(
-  props: BodyProps<T>
-) => {
-  const { columns, data, emptyComponent, onRow, selectedRowKey } = props;
+export const Body = <T extends any>(props: BodyProps<T>) => {
+  const {
+    columns,
+    data,
+    dataUniqueKey,
+    emptyComponent,
+    onRow,
+    selectedRowKey,
+  } = props;
 
   const theme = useTheme();
 
@@ -109,7 +118,7 @@ export const Body = <T extends { key: string | number }>(
       <TR
         theme={theme}
         key={index}
-        selected={selectedRowKey === d.key}
+        selected={selectedRowKey === d[dataUniqueKey]}
         onClick={e => handleClick(e, d)}
       >
         {columns.map(c => {
@@ -132,6 +141,7 @@ export const Body = <T extends { key: string | number }>(
     ));
   }, [
     data,
+    dataUniqueKey,
     columns,
     emptyComponent,
     renderDataIndex,

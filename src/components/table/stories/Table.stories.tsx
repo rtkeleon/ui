@@ -44,7 +44,6 @@ export default {
 
 export const simple = () => {
   interface User {
-    key: string | number;
     name: string;
     age: number;
     address: string;
@@ -54,19 +53,16 @@ export const simple = () => {
 
   const data: User[] = [
     {
-      key: '1',
       name: 'John Brown',
       age: 61,
       address: 'British Columbia No. 1 Lake Park',
     },
     {
-      key: '2',
       name: 'Jim Green',
       age: 70,
       address: 'Ontario No. 1 Lake Park',
     },
     {
-      key: '3',
       name: 'Joe Flack',
       age: 40,
       address: 'Winnepeg No. 1 Lake Park',
@@ -106,12 +102,13 @@ export const simple = () => {
   ];
 
   const onClick = React.useCallback((_, record) => {
-    setSelectedRow(record.key);
+    setSelectedRow(record.name);
   }, []);
 
   return (
     <Table<User>
       data={data}
+      dataUniqueKey={'name'}
       columns={columns}
       onRow={{ onClick }}
       selectedRowKey={selectedRow}
@@ -214,7 +211,14 @@ export const sortable = () => {
     [tableData, setTableData]
   );
 
-  return <Table<User> data={tableData} columns={columns} onSort={handleSort} />;
+  return (
+    <Table<User>
+      dataUniqueKey={'name'}
+      data={tableData}
+      columns={columns}
+      onSort={handleSort}
+    />
+  );
 };
 
 export const empty = () => {
@@ -258,6 +262,7 @@ export const empty = () => {
   return (
     <Table
       data={[]}
+      dataUniqueKey={'name'}
       columns={columns}
       emptyComponent={<div>It appears you have no users.</div>}
     />
@@ -336,7 +341,12 @@ export const loading = () => {
         Fetch Data
       </Button>
       <ButtonSpacer />
-      <Table data={tableData} columns={columns} loading={loading} />
+      <Table
+        dataUniqueKey={'name'}
+        data={tableData}
+        columns={columns}
+        loading={loading}
+      />
     </>
   );
 };

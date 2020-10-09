@@ -50,7 +50,7 @@ const StyledCell = styled(Cell)<StyledCellProps>`
       css`
         &:hover {
           cursor: pointer;
-          background: ${theme.colors.tertiaryBackground};
+          background: ${theme.colors.hoverBackground};
         }
       `}
   `}

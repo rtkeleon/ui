@@ -43,7 +43,7 @@ export interface ColumnProps<T> {
   visible?: boolean;
 }
 
-export interface TableProps<T extends { key: string | number }> {
+export interface TableProps<T> {
   /** className of the table component */
   className?: string;
 
@@ -52,6 +52,9 @@ export interface TableProps<T extends { key: string | number }> {
 
   /** data to show in the table where T is the type of data to show */
   data: T[];
+
+  /** unique key used to identify row in table. Useful when using `selectedRowKey` */
+  dataUniqueKey: string | number;
 
   /** component to render when there is no data to show in the table */
   emptyComponent?: React.ReactNode;
@@ -81,15 +84,14 @@ const TableContainer = styled.table`
   border-spacing: 0;
 `;
 
-export const Table = <T extends { key: string | number }>(
-  props: TableProps<T>
-) => {
+export const Table = <T extends any>(props: TableProps<T>) => {
   const [sortedColumn, setSortedColumn] = React.useState(null);
 
   const {
     className,
     columns,
     data,
+    dataUniqueKey,
     emptyComponent,
     loading,
     loadingComponent,
@@ -122,6 +124,7 @@ export const Table = <T extends { key: string | number }>(
         <Body<T>
           columns={columns}
           data={data}
+          dataUniqueKey={dataUniqueKey}
           emptyComponent={emptyComponent}
           onRow={onRow}
           selectedRowKey={selectedRowKey}

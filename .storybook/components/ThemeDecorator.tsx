@@ -34,13 +34,14 @@ const theme2 = createTheme(
     secondary: '#ad7101',
     secondaryBackground: '#1B1B1B',
     tertiary: 'red',
-    tertiaryBackground: rgba('#FFFFFF', 0.03),
+    tertiaryBackground: rgba('#FFFFFF', 0.3),
     border: '#5C5F68',
     title: '#EFEFEF',
     subtitle: '#EFEFEF',
     body: '#FFFFFF',
     description: '#FFFFFF',
     label: '#FFFFFF',
+    quaternaryBackground: rgba('#6FA4CB', 0.3),
   },
   {}
 );
