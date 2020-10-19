@@ -56,11 +56,13 @@ const StyledCell = styled(Cell)<StyledCellProps>`
   `}
 `;
 
-const StyledSubtitle = styled(Typography.Subtitle)`
+const StyledSubtitle = styled(Typography.Subtitle)<{
+  theme: GlobalTheme;
+}>`
   display: flex;
   align-items: center;
-  color: ${({ theme }) => theme.tableHeaderFontColor};
-  font-size: ${({ theme }) => theme.tableHeaderFontSize};
+  color: ${({ theme }) => theme.tableHeadFontColor};
+  font-size: ${({ theme }) => theme.tableHeadFontSize};
 `;
 
 const SubtitleContent = styled.span<StyledSubtitleContentProps>`
