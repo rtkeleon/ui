@@ -73,6 +73,9 @@ export interface TableProps<T> {
 
   /** for styling purposes, set the selectedRowKey to highlight a row that a user has interacted with. */
   selectedRowKey?: string | number;
+
+  /** if true, the header of the table will be visible */
+  showHeader?: boolean;
 }
 
 const Container = styled.div`
@@ -98,6 +101,7 @@ export const Table = <T extends {}>(props: TableProps<T>) => {
     onRow,
     onSort,
     selectedRowKey,
+    showHeader,
   } = props;
 
   const handleSort = React.useCallback(
@@ -120,6 +124,7 @@ export const Table = <T extends {}>(props: TableProps<T>) => {
           columns={columns}
           onSort={handleSort}
           sortedColumn={sortedColumn}
+          showHeader={showHeader}
         />
         <Body<T>
           columns={columns}
@@ -132,6 +137,10 @@ export const Table = <T extends {}>(props: TableProps<T>) => {
       </TableContainer>
     </Container>
   );
+};
+
+Table.defaultProps = {
+  showHeader: true,
 };
 
 Table.displayName = 'Table';

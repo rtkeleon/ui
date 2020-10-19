@@ -287,9 +287,13 @@ export interface GlobalTheme {
   tableHeadCellPadding: string;
   tableHeadBorder: string;
   tableHeadBorderColor: string;
+  tableHeadFontSize: string;
+  tableHeadFontColor: string;
   tableBodyCellPadding: string;
   tableBodyRowBorder: string;
   tableBodyRowBorderColor: string;
+  tableBodyFontSize: string;
+  tableBodyFontColor: string;
 
   // ---- Tabs ---- //
   tabsInkbarThickness: string;

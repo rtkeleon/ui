@@ -261,9 +261,13 @@ export const getDefaultTheme = (themeColors: Colors = colors): GlobalTheme => ({
   tableHeadBorder: '2px solid',
   tableHeadBorderColor: themeColors.tableBorder,
   tableHeadCellPadding: '8px 16px',
+  tableHeadFontSize: '16px',
+  tableHeadFontColor: themeColors.subtitle,
   tableBodyCellPadding: '8px 16px',
   tableBodyRowBorder: '1px solid',
   tableBodyRowBorderColor: themeColors.tableBorder,
+  tableBodyFontSize: '16px',
+  tableBodyFontColor: themeColors.body,
 
   // ---- Tabs ---- //
   tabsInkbarThickness: '4px',

@@ -56,6 +56,16 @@ const TR = styled.tr<{
   `}
 `;
 
+const BodyText = styled(Typography.Body)<{
+  theme: GlobalTheme;
+  selected?: boolean;
+}>`
+  color: ${({ theme, selected }) =>
+    selected ? theme.colors.primary : theme.tableBodyFontColor};
+  font-size: ${({ theme }) => theme.tableBodyFontSize};
+  font-weight: ${({ selected }) => (selected ? 'bold' : 'normal')};
+`;
+
 const EmptyContentContainer = styled.div`
   ${({ theme }) => css`
     height: ${theme.tableEmptyContainerHeight};
@@ -105,9 +115,9 @@ export const Body = <T extends {}>(props: BodyProps<T>) => {
         <tr>
           <TD colSpan={columns.length}>
             <EmptyContentContainer theme={theme}>
-              <Typography.Body>
+              <BodyText>
                 {emptyComponent == null ? 'No Data' : emptyComponent}
-              </Typography.Body>
+              </BodyText>
             </EmptyContentContainer>
           </TD>
         </tr>
@@ -126,13 +136,17 @@ export const Body = <T extends {}>(props: BodyProps<T>) => {
           return (
             <TD key={c.key} theme={theme}>
               <Cell justify={c.justify}>
-                <Typography.Body>
+                <BodyText
+                  selected={
+                    selectedRowKey ? selectedRowKey === d[dataUniqueKey] : false
+                  }
+                >
                   {Renderer == null ? (
                     renderDataIndex(c, d)
                   ) : (
                     <Renderer record={d} />
                   )}
-                </Typography.Body>
+                </BodyText>
               </Cell>
             </TD>
           );

@@ -16,6 +16,7 @@ export interface HeaderProps<T> {
   columns: ColumnProps<T>[];
   onSort: (key: string | number, state: SortState) => void;
   sortedColumn: any;
+  showHeader?: boolean;
 }
 
 const TH = styled.th<{
@@ -31,9 +32,13 @@ const TH = styled.th<{
 `;
 
 export const Header = <T extends any = any>(props: HeaderProps<T>) => {
-  const { columns, onSort, sortedColumn } = props;
+  const { columns, onSort, sortedColumn, showHeader } = props;
 
   const theme = useTheme();
+
+  if (!showHeader) {
+    return null;
+  }
 
   return (
     <thead>

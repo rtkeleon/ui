@@ -59,6 +59,8 @@ const StyledCell = styled(Cell)<StyledCellProps>`
 const StyledSubtitle = styled(Typography.Subtitle)`
   display: flex;
   align-items: center;
+  color: ${({ theme }) => theme.tableHeaderFontColor};
+  font-size: ${({ theme }) => theme.tableHeaderFontSize};
 `;
 
 const SubtitleContent = styled.span<StyledSubtitleContentProps>`
