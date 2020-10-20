@@ -4,7 +4,7 @@ import { useTheme } from '../../hooks/useTheme';
 
 import CheckCircle from '../icons/CheckCircle';
 import ExclamationCircle from '../icons/ExclamationCircle';
-import ExclamationTriangle from '../icons/ExclamationTriangle';
+import TimesCircle from '../icons/TimesCircle';
 import InfoCircle from '../icons/InfoCircle';
 
 interface NotificationIconProps {
@@ -18,7 +18,7 @@ export const NotificationIcon: React.FunctionComponent<NotificationIconProps> = 
 
   switch (notificationType) {
     case 'error': {
-      return <ExclamationTriangle size="lg" color={theme.colors.red} />;
+      return <TimesCircle size="lg" color={theme.colors.red} />;
     }
     case 'warning': {
       return <ExclamationCircle size="lg" color={theme.colors.yellow} />;
