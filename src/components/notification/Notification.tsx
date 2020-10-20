@@ -80,6 +80,7 @@ export const Notification: React.FunctionComponent<NotificationProps> = ({
           type: 'tween',
           duration: 0.2,
         },
+        layout: true,
         initial: { opacity: 0, x: 50 },
         animate: {
           opacity: 1,

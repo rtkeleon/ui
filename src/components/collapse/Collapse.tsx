@@ -48,13 +48,41 @@ export interface CollapseProps {
 
   /** Function to handle when collapse state changes */
   onChange?: (itemKey?: string | number) => void;
+
+  /** if true, the footer hightlight will be permanent */
+  permanentFooterHighlight?: boolean;
+
+  /** if true, the header will be shown */
+  showHeader?: boolean;
 }
 
-const Container = styled.div<{ disabled?: boolean }>`
-  ${({ disabled, theme }) => css<{ disabled?: boolean }>`
+const Container = styled.div<{
+  disabled?: boolean;
+  showHeader?: boolean;
+  permanentFooterHighlight?: boolean;
+}>`
+  ${({ disabled, theme, showHeader, permanentFooterHighlight }) => css<{
+    disabled?: boolean;
+    showHeader?: boolean;
+  }>`
+
+    ${!showHeader &&
+      css`
+        border-top: 1px solid ${theme.collapseBorderColor};
+        border-top-left-radius: ${theme.collapseBorderRadius};
+        border-top-right-radius: ${theme.collapseBorderRadius};
+      `}
+    
     ${disabled &&
       css`
         pointer-events: none;
+      `}
+    
+    ${permanentFooterHighlight &&
+      css`
+        .rtk-collapse-content-footer {
+          background: ${theme.collapseContentFooterHoverColor};
+        }
       `}
 
     &:hover,
@@ -84,6 +112,8 @@ export const Collapse: React.FunctionComponent<CollapseProps> = ({
   footer,
   itemKey,
   onChange,
+  permanentFooterHighlight,
+  showHeader,
 }) => {
   const [isExpanded, setExpanded] = React.useState<boolean | undefined>(
     defaultExpanded
@@ -115,32 +145,44 @@ export const Collapse: React.FunctionComponent<CollapseProps> = ({
 
   useAfterMountEffect(handleSetExpanded, [disabled, expanded]);
 
+  const animate = React.useMemo(() => {
+    if (isExpanded) {
+      return 'open';
+    }
+
+    return 'closed';
+  }, [isExpanded]);
+
   return (
     <Container
       className={`${className} rtk-collapse`}
       disabled={disabled}
+      showHeader={showHeader}
+      permanentFooterHighlight={permanentFooterHighlight}
       theme={theme}
     >
-      <Header
-        disabled={disabled}
-        expanded={isExpanded}
-        icon={icon}
-        onClick={onHeaderClick}
-        theme={theme}
-      >
-        {header}
-      </Header>
+      {showHeader && (
+        <Header
+          disabled={disabled}
+          expanded={isExpanded}
+          icon={icon}
+          onClick={onHeaderClick}
+          theme={theme}
+        >
+          {header}
+        </Header>
+      )}
       <ContentContainer
-        animate={isExpanded ? 'open' : 'closed'}
+        animate={animate}
         destroyOnClose={destroyOnClose}
         theme={theme}
       >
-        <Content theme={theme}>
-          <ContentBody theme={theme} hasFooter={!!footer}>
+        <Content theme={theme} showHeader={showHeader} hasFooter={!!footer}>
+          <ContentBody theme={theme} showHeader={showHeader}>
             {children}
           </ContentBody>
-          {footer && <ContentFooter theme={theme}>{footer}</ContentFooter>}
         </Content>
+        {footer && <ContentFooter theme={theme}>{footer}</ContentFooter>}
       </ContentContainer>
     </Container>
   );
@@ -156,6 +198,8 @@ Collapse.defaultProps = {
   defaultExpanded: false,
   destroyOnClose: false,
   header: '',
+  showHeader: true,
   onChange: undefined,
+  permanentFooterHighlight: false,
   itemKey: '',
 };

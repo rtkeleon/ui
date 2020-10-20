@@ -113,7 +113,7 @@ export const complex = () => {
           initial: { opacity: 0 },
           animate: { opacity: 1 },
           exit: { opacity: 0 },
-          positionTransition: hasMountedFloater ? { type: 'tween' } : false,
+          layout: hasMountedFloater,
         }}
         matchAnchorWidth
       >

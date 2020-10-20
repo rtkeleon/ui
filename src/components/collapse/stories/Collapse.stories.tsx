@@ -21,25 +21,29 @@ const Container = styled.div`
   padding: 10px;
 `;
 
-const StyledCollapseContentBody = styled.div`
+const StyledCollapseContentBody = styled.div<any>`
   height: 200px;
 `;
 
-const CollapseContent = ({ children }: any) => (
-  <StyledCollapseContentBody>{children}</StyledCollapseContentBody>
+const CollapseContent = ({ children, previewing }: any) => (
+  <StyledCollapseContentBody previewing={previewing}>
+    {children}
+  </StyledCollapseContentBody>
 );
 
 const TestContent = () => {
   return <CollapseContent />;
 };
 
-export const simple = () => (
-  <Container>
-    <Collapse header="Click Me" itemKey="default">
-      <CollapseContent />
-    </Collapse>
-  </Container>
-);
+export const simple = () => {
+  return (
+    <Container>
+      <Collapse header="Click Me" itemKey="default" defaultExpanded>
+        <CollapseContent />
+      </Collapse>
+    </Container>
+  );
+};
 
 export const open = () => (
   <Container>
