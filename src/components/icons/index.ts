@@ -9,6 +9,8 @@ import Check from './Check';
 import CheckCircle from './CheckCircle';
 import CheckSquare from './CheckSquare';
 import ChevronUp from './ChevronUp';
+import ChevronCircleDown from './ChevronCircleDown';
+import ChevronCircleUp from './ChevronCircleUp';
 import Clipboard from './Clipboard';
 import ClipboardList from './ClipboardList';
 import Clock from './Clock';
@@ -58,6 +60,8 @@ export const Icon = {
   CheckCircle,
   CheckSquare,
   ChevronUp,
+  ChevronCircleDown,
+  ChevronCircleUp,
   Clipboard,
   ClipboardList,
   Clock,

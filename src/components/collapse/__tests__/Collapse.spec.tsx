@@ -47,7 +47,7 @@ describe('Collapse', () => {
     );
 
     expect(wrapper.find('CollapseContentFooter').children()).toHaveLength(1);
-    expect(wrapper.find('CollapseContent')).toHaveProp('hasFooter', true);
+    expect(wrapper.find('CollapseContentBody')).toHaveProp('hasFooter', true);
   });
 
   it('does not render footer and sets body radius', () => {
@@ -58,7 +58,7 @@ describe('Collapse', () => {
     );
 
     expect(wrapper.find('CollapseContentFooter')).not.toExist();
-    expect(wrapper.find('CollapseContent')).toHaveProp('hasFooter', false);
+    expect(wrapper.find('CollapseContentBody')).toHaveProp('hasFooter', false);
   });
 
   it('sets the defaultExpanded prop', () => {
