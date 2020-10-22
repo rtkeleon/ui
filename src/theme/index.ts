@@ -271,7 +271,9 @@ export const getDefaultTheme = (themeColors: Colors = colors): GlobalTheme => ({
 
   // ---- Tabs ---- //
   tabsInkbarThickness: '4px',
+  tabsInkbarColor: themeColors.orange,
   tabsItemPadding: '8px 16px',
+  tabsItemColor: themeColors.white,
 
   // ---- Toggle ---- //
   toggleHeight: '16px',

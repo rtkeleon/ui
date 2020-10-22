@@ -20,8 +20,6 @@ export interface Colors {
   secondaryBackground: string;
   subtitle: string;
   tableBorder: string;
-  tabItemHorizontal: string;
-  tabItemVertical: string;
   tag: string;
   tertiary: string;
   tertiaryBackground: string;
@@ -297,7 +295,9 @@ export interface GlobalTheme {
 
   // ---- Tabs ---- //
   tabsInkbarThickness: string;
+  tabsInkbarColor: string;
   tabsItemPadding: string;
+  tabsItemColor: string;
 
   // ---- Toggle ---- //
   toggleHeight: string;

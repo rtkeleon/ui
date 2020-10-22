@@ -55,7 +55,7 @@ const TabsContainer = styled.div<StyledTabsContainerProps>`
 const Inkbar = styled.div<{ theme: GlobalTheme }>`
   ${({ theme }) => css`
     position: relative;
-    background: ${theme.colors.orange};
+    background: ${theme.tabsInkbarColor};
     height: ${theme.tabsInkbarThickness};
 
     transition: all ${theme.animationTimeVeryFast}s ease-in-out;

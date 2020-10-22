@@ -52,7 +52,7 @@ const Container = styled.div`
 
 const TabBody = styled(Typography.Body)`
   ${({ theme }: { theme: GlobalTheme }) => css<{ theme: GlobalTheme }>`
-    color: ${theme.colors.tabItemHorizontal};
+    color: ${theme.tabsItemColor};
   `}
 `;
 
