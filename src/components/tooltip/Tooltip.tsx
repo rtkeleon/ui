@@ -25,7 +25,7 @@ export interface TooltipProps {
   placement: Placement;
 
   /** trigger to show the dropdown item. (click to come later) */
-  trigger?: 'hover';
+  trigger?: 'hover' | 'click';
 
   /** if true, the tooltip will be shown. Use this to customize the tooltips behaviour */
   visible?: boolean;
@@ -44,6 +44,7 @@ export const Tooltip: React.FunctionComponent<TooltipProps> = ({
   hideArrow,
   placement,
   overlay,
+  trigger,
   visible,
 }) => {
   const [, forceRerender] = React.useState<object>({});
@@ -51,12 +52,20 @@ export const Tooltip: React.FunctionComponent<TooltipProps> = ({
   const triggerRef = React.useRef(null);
 
   const handleMouseEnter = React.useCallback(() => {
-    setOpen(true);
-  }, []);
+    if (trigger !== undefined && trigger === 'hover') {
+      setOpen(true);
+    }
+  }, [trigger]);
 
   const handleMouseLeave = React.useCallback(() => {
     setOpen(false);
   }, []);
+
+  const handleOnClick = React.useCallback(() => {
+    if (trigger !== undefined && trigger === 'click') {
+      setOpen(true);
+    }
+  }, [trigger]);
 
   const isOpen = visible == null ? open && triggerRef !== null : visible;
 
@@ -82,6 +91,7 @@ export const Tooltip: React.FunctionComponent<TooltipProps> = ({
       className={`${className} rtk-tooltip`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onClick={handleOnClick}
     >
       {children}
       <Floater
@@ -96,6 +106,10 @@ export const Tooltip: React.FunctionComponent<TooltipProps> = ({
       </Floater>
     </Container>
   );
+};
+
+Tooltip.defaultProps = {
+  trigger: 'hover',
 };
 
 Tooltip.displayName = 'Tooltip';
