@@ -1,15 +1,18 @@
 import styled, { css } from 'styled-components';
 
+import { motion } from 'framer-motion';
+
 import { GlobalTheme } from '../../theme/types';
 
 import { Typography } from '../typography/Typography';
+import * as React from 'react';
 
 interface ContainerProps {
   theme: GlobalTheme;
   notificationType: 'default' | 'success' | 'error' | 'warning' | 'info';
 }
 
-export const Container = styled.div<ContainerProps>`
+export const Container = styled(motion.div)<ContainerProps>`
   min-height: ${({ theme }) => theme.notificationBoxMinHeight};
 
   max-width: ${({ theme }) => theme.notificationBoxMaxWidth};
@@ -18,6 +21,8 @@ export const Container = styled.div<ContainerProps>`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  
+  margin-bottom: 16px;
 
   ${({ notificationType }) =>
     notificationType === 'error' &&
@@ -63,3 +68,7 @@ export const NotificationTextContainer = styled.div`
 export const NotificationText = styled(Typography.Body)`
   text-align: left;
 `;
+
+export const NotificationTitle: React.FunctionComponent = ({ children }) => (
+  <Typography.Title level={5}>{children}</Typography.Title>
+);
