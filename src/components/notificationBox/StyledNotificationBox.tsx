@@ -67,8 +67,13 @@ export const NotificationTextContainer = styled.div`
 
 export const NotificationText = styled(Typography.Body)`
   text-align: left;
+  color: ${({ theme }) => theme.notificationBoxColor};
+`;
+
+const StyledTitle = styled(Typography.Title)`
+  color: ${({ theme }) => theme.notificationBoxColor};
 `;
 
 export const NotificationTitle: React.FunctionComponent = ({ children }) => (
-  <Typography.Title level={5}>{children}</Typography.Title>
+  <StyledTitle level={5}>{children}</StyledTitle>
 );

@@ -231,6 +231,7 @@ export interface GlobalTheme {
   // ---- NotificationBox ---- //
   notificationBoxMinHeight: string;
   notificationBoxMaxWidth: string;
+  notificationBoxColor: string;
   notificationBoxErrorBackground: string;
   notificationBoxSuccessBackground: string;
   notificationBoxWarningBackground: string;
