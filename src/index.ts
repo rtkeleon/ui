@@ -51,6 +51,8 @@ export {
   Status,
 } from './components/formItem/FormItem';
 
+export { Markdown } from './components/markdown/Markdown';
+
 export { Modal, ModalProps } from './components/modal/Modal';
 
 export {
