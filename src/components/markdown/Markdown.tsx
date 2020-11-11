@@ -7,6 +7,7 @@ type Props = {
 declare function require(name: string);
 
 export const Markdown = ({ children }: Props) => {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
   const md = require('markdown-it')();
   return (
     <div className="markdown">
