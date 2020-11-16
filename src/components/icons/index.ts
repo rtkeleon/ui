@@ -30,6 +30,7 @@ import FolderOutline from './FolderOutline';
 import GlobeAmericas from './GlobeAmericas';
 import InfoCircle from './InfoCircle';
 import Loading from './Loading';
+import Lock from './Lock';
 import Minus from './Minus';
 import PaperClip from './PaperClip';
 import Pencil from './Pencil';
@@ -82,6 +83,7 @@ export const Icon = {
   GlobeAmericas,
   InfoCircle,
   Loading,
+  Lock,
   Minus,
   PaperClip,
   Pencil,
