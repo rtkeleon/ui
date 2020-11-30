@@ -4,6 +4,7 @@ export interface Colors {
   bodyDisabled: string;
   border: string;
   blue: string;
+  code: string;
   description: string;
   disabledBackground: string;
   gray: string;
