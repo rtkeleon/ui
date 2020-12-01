@@ -21,6 +21,7 @@ import Edit from './Edit';
 import Exclamation from './Exclamation';
 import ExclamationCircle from './ExclamationCircle';
 import ExclamationTriangle from './ExclamationTriangle';
+import ExternalLinkAlt from './ExternalLinkAlt';
 import EyeSlash from './EyeSlash';
 import File from './File';
 import FileAlt from './FileAlt';
@@ -74,6 +75,7 @@ export const Icon = {
   Exclamation,
   ExclamationCircle,
   ExclamationTriangle,
+  ExternalLinkAlt,
   EyeSlash,
   File,
   FileAlt,
