@@ -1,6 +1,6 @@
 {
   "name": "@rtkwlf/ui",
-  "version": "1.2.9",
+  "version": "2.0.0",
   "main": "dist/ui.cjs.js",
   "module": "dist/ui.es.js",
   "types": "dist/ui.d.ts",
@@ -32,14 +32,14 @@
     "framer-motion": "2.9.3",
     "markdown-it": "11.0.0",
     "polished": "3.4.4",
-    "react-dropzone": "11.0.2",
-    "react-windowed-select": "2.0.4"
+    "react-dropzone": "11.0.2"
   },
   "peerDependencies": {
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-is": "^16.11.0",
     "react-select": "^3.1.0",
+    "react-windowed-select": "^2.0.4",
     "styled-components": "^5.0.1"
   },
   "devDependencies": {
@@ -105,7 +105,8 @@
     "styled-components": "5.0.1",
     "ts-loader": "6.2.1",
     "typescript": "4.0.3",
-    "xhr-mock": "2.5.1"
+    "xhr-mock": "2.5.1",
+    "react-windowed-select": "2.0.4"
   },
   "jest": {
     "setupFilesAfterEnv": [
