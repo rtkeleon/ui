@@ -1,12 +1,13 @@
 import * as React from 'react';
 
-import { default as ReactSelect, Props, ValueType } from 'react-select';
+import { Props, ValueType } from 'react-select';
 import styled from 'styled-components';
 
 import { useTheme } from '../../hooks/useTheme';
 import CaretDown from '../icons/CaretDown';
 import Times from '../icons/Times';
 import { GlobalTheme } from '../../theme/types';
+import WindowedSelect from 'react-windowed-select';
 
 export type OptionType = {
   label: string;
@@ -178,7 +179,7 @@ export const Select: React.FunctionComponent<SelectProps> = ({
 
   return (
     <Container className={`${className} rtk-select`} theme={theme}>
-      <ReactSelect
+      <WindowedSelect
         classNamePrefix="rtk"
         styles={styles}
         components={{
