@@ -19,6 +19,7 @@ describe('Select', () => {
       />
     );
 
-    expect(wrapper.exists('StateManager')).toBe(true);
+    // ForwardRef is the internal name of WindowedSelect
+    expect(wrapper.exists('ForwardRef')).toBe(true);
   });
 });
