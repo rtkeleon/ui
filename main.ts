@@ -2,7 +2,7 @@ import type { StorybookConfig } from '@storybook/react/types';
 
 module.exports = {
   stories: ['./src/**/*.stories.*'],
-  logLevel: 'debug',
+  logLevel: 'error',
   addons: [
     {
       name: '@storybook/addon-docs',

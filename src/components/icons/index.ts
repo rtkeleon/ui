@@ -111,4 +111,4 @@ export const Icon = {
   WindowMaximize,
 };
 
-export { IconProps, SortState, SortProps };
+export type { IconProps, SortState, SortProps };

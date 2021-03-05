@@ -13,7 +13,7 @@
     "gen": "plop",
     "start": "rm -rf dist/ && rm -rf types/ && rm -rf lib/ && start-storybook -p 9000 --quiet -s public -c ./",
     "storybook:build": "build-storybook -o build/storybook/static -s public",
-    "storybook:docs": "build-storybook --docs -o docs -s public",
+    "storybook:docs": "build-storybook --docs -o docs -s public -c ./",
     "build": "rm -rf dist/ && rm -rf types/ && rm -rf lib/ && npm run rollup && npm run build:ts",
     "prettier:write": "prettier --write '{src,.storybook}/**/*.{js,tsx,ts}'",
     "prettier:check": "prettier --check '{src,.storybook}/**/*.{js,tsx,ts}'",

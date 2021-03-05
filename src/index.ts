@@ -160,137 +160,140 @@ import { Position } from './utils/getRelativePosition';
 export {
   // accordion
   Accordion,
+  // button
+  Button,
+  // badge
+  Badge,
+  // collapse
+  Collapse,
+  // checkbox
+  Checkbox,
+  // divider
+  Divider,
+  // droppad
+  DropPad,
+  // floater
+  Floater,
+  // hooks
+  useAfterMountEffect,
+  useTheme,
+  useUploadOnMountEffect,
+  // icons
+  Icon,
+  // input
+  Input,
+  // form item
+  FormItem,
+  // layout
+  Layout,
+  // markdown
+  Markdown,
+  // menu
+  Menu,
+  // modal
+  Modal,
+  // notification
+  Notification,
+  // notification bin
+  NotificationBin,
+  // notification box
+  NotificationBox,
+  // panel
+  Panel,
+  // portal
+  Portal,
+  // radio
+  Radio,
+  // select
+  Select,
+  // table
+  Table,
+  // tabs
+  Tabs,
+  // theme
+  createTheme,
+  // toggle
+  Toggle,
+  // tooltip
+  Tooltip,
+  // typography
+  Typography,
+  // utils
+  getRelativePosition,
+};
+
+export type {
   AccordionProps,
   AccordionFunctionComponent,
   AccordionItemProps,
   ItemGapType,
   ItemKeyType,
   ExpandedItemsType,
-  // button
-  Button,
   ButtonProps,
   ButtonType,
   ShapeType,
   SizeType,
-  // badge
-  Badge,
-  BadgeProps,
-  BadgeColorType,
-  // collapse
-  Collapse,
   CollapseProps,
-  // checkbox
-  Checkbox,
   CheckboxProps,
-  // divider
-  Divider,
   DividerProps,
   Component,
   Orientation,
-  // droppad
-  DropPad,
+  BadgeProps,
+  BadgeColorType,
   DropPadProps,
   DropPadFunctionComponent,
   DropPadFileProps,
-  // floater
-  Floater,
   FloaterProps,
-  // hooks
-  useAfterMountEffect,
-  useTheme,
-  useUploadOnMountEffect,
-  UploadOnMountProps,
-  UploadOnMountResult,
-  Header,
-  // icons
-  Icon,
   IconProps,
   SortState,
   SortProps,
-  // input
-  Input,
   InputProps,
   BorderType,
   InputSize,
-  // form item
-  FormItem,
-  FormItemProps,
-  Status,
-  // layout
-  Layout,
   LayoutProps,
   LayoutComponent,
   HeaderProps,
   ContentProps,
   FooterProps,
   SiderProps,
-  // markdown
-  Markdown,
   MarkdownProps,
-  // menu
   MenuFunctionComponent,
-  Menu,
   MenuProps,
   MenuItemProps,
   MenuItemGroupProps,
-  // modal
-  Modal,
   ModalProps,
-  // notification
-  Notification,
   NotificationProps,
-  // notification bin
-  NotificationBin,
   NotificationBinProps,
   NotificationType,
-  // notification box
-  NotificationBox,
   NotificationBoxProps,
-  // panel
-  Panel,
   PanelProps,
-  // portal
-  Portal,
   PortalProps,
-  // radio
-  Radio,
+  Position,
   RadioProps,
   RadioItemProps,
   RadioFunctionComponent,
-  // select
-  Select,
   SelectProps,
-  // table
-  Table,
+  FormItemProps,
+  Status,
   TableProps,
   ColumnProps,
   Justify,
   OnRowProps,
-  // tabs
-  Tabs,
-  TabsProps,
-  TabsItemProps,
-  TabsFunctionComponent,
-  // theme
-  createTheme,
-  GlobalTheme,
-  Colors,
-  // toggle
-  Toggle,
-  ToggleProps,
-  Placement,
-  // tooltip
-  Tooltip,
-  TooltipProps,
-  // typography
-  Typography,
   Level,
   BodyProps,
   DescriptionProps,
   SubtitleProps,
   TitleProps,
   LabelProps,
-  // utils
-  getRelativePosition,
-  Position,
+  TabsProps,
+  TabsItemProps,
+  TabsFunctionComponent,
+  Colors,
+  GlobalTheme,
+  Placement,
+  ToggleProps,
+  TooltipProps,
+  UploadOnMountResult,
+  UploadOnMountProps,
+  Header,
 };
