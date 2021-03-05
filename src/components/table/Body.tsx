@@ -39,18 +39,18 @@ const TR = styled.tr<{
 
     &:hover {
       ${!selected &&
-        css<{ theme: GlobalTheme }>`
-          background: ${theme.colors.hoverBackground};
-        `}
+      css<{ theme: GlobalTheme }>`
+        background: ${theme.colors.hoverBackground};
+      `}
     }
 
     ${selected &&
-      css<{
-        theme: GlobalTheme;
-        selected: boolean;
-      }>`
-        background: ${theme.colors.quaternaryBackground};
-      `};
+    css<{
+      theme: GlobalTheme;
+      selected: boolean;
+    }>`
+      background: ${theme.colors.quaternaryBackground};
+    `};
 
     transition: background ${theme.animationTimeVeryFast}s ease-in-out;
   `}
@@ -129,9 +129,9 @@ export const Body = <T extends {}>(props: BodyProps<T>) => {
         theme={theme}
         key={index}
         selected={selectedRowKey ? selectedRowKey === d[dataUniqueKey] : false}
-        onClick={e => handleClick(e, d)}
+        onClick={(e) => handleClick(e, d)}
       >
-        {columns.map(c => {
+        {columns.map((c) => {
           const Renderer = c.render;
           return (
             <TD key={c.key} theme={theme}>

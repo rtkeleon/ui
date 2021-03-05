@@ -40,9 +40,9 @@ const Container = styled.div`
     opacity: 0.7;
 
     ${isSelected &&
-      css`
-        opacity: 1;
-      `}
+    css`
+      opacity: 1;
+    `}
 
     &:hover {
       opacity: 1;
@@ -73,7 +73,7 @@ export const TabsItem: React.FunctionComponent<TabsItemProps> = ({
   } = React.useContext(TabsContext);
 
   const handleClick = React.useCallback(
-    e => {
+    (e) => {
       if (onClick) {
         onClick(itemKey, e);
       }

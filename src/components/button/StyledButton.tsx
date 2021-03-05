@@ -48,21 +48,26 @@ export const StyledButton = styled.button<StyledButtonProps>`
    -webkit-tap-highlight-color: transparent;
    
    /* // ----------- Size Small --------- // */
-    ${customProps.size === 'small' &&
+    ${
+      customProps.size === 'small' &&
       css`
         font-size: ${theme.buttonSmallFontSize};
         height: ${theme.buttonSmallHeight};
-      `}
+      `
+    }
     
    /* // ----------- Size Large --------- // */
-    ${customProps.size === 'large' &&
+    ${
+      customProps.size === 'large' &&
       css`
         font-size: ${theme.buttonLargeFontSize};
         height: ${theme.buttonLargeHeight};
-      `}
+      `
+    }
 
     /* // ----------- Primary --------- // */
-    ${buttonType === 'primary' &&
+    ${
+      buttonType === 'primary' &&
       css`
         background: ${theme.buttonPrimaryBackground};
         color: ${theme.buttonPrimaryColor};
@@ -81,39 +86,41 @@ export const StyledButton = styled.button<StyledButtonProps>`
         }
 
         ${customProps.ghost &&
-          css<StyledButtonProps>`
-            background: ${theme.buttonGhostBackground};
-            border: ${theme.buttonGhostBorder};
-            border-color: ${theme.buttonPrimaryBackground};
-            color: ${theme.buttonPrimaryBackground};
+        css<StyledButtonProps>`
+          background: ${theme.buttonGhostBackground};
+          border: ${theme.buttonGhostBorder};
+          border-color: ${theme.buttonPrimaryBackground};
+          color: ${theme.buttonPrimaryBackground};
 
+          &:hover,
+          &:focus {
+            background: ${theme.buttonPrimaryBackground};
+            border: ${theme.buttonGhostBorder};
+            border-color: transparent;
+          }
+
+          ${customProps.loading &&
+          css`
             &:hover,
             &:focus {
-              background: ${theme.buttonPrimaryBackground};
+              background: ${theme.buttonGhostBackground};
               border: ${theme.buttonGhostBorder};
-              border-color: transparent;
-            }
-
-            ${customProps.loading &&
-              css`
-                &:hover,
-                &:focus {
-                  background: ${theme.buttonGhostBackground};
-                  border: ${theme.buttonGhostBorder};
-                  border-color: ${theme.buttonPrimaryBackground};
-                  color: ${theme.buttonPrimaryBackground};
-                }
-              `}
-
-            &:active {
-              border: ${theme.buttonGhostBorder};
-              border-color: transparent;
+              border-color: ${theme.buttonPrimaryBackground};
+              color: ${theme.buttonPrimaryBackground};
             }
           `}
-      `};
+
+          &:active {
+            border: ${theme.buttonGhostBorder};
+            border-color: transparent;
+          }
+        `}
+      `
+    };
 
       /* // ----------- Secondary --------- // */
-      ${buttonType === 'secondary' &&
+      ${
+        buttonType === 'secondary' &&
         css<StyledButtonProps>`
           background: ${theme.buttonSecondaryBackground};
           color: ${theme.buttonSecondaryColor};
@@ -132,28 +139,30 @@ export const StyledButton = styled.button<StyledButtonProps>`
           }
 
           ${customProps.ghost &&
-            css`
-              background: ${theme.buttonGhostBackground};
+          css`
+            background: ${theme.buttonGhostBackground};
+            border: ${theme.buttonGhostBorder};
+            border-color: ${theme.buttonSecondaryBackground};
+            color: ${theme.buttonSecondaryBackground};
+
+            &:hover,
+            &:focus {
+              background: ${theme.buttonSecondaryBackground};
               border: ${theme.buttonGhostBorder};
-              border-color: ${theme.buttonSecondaryBackground};
-              color: ${theme.buttonSecondaryBackground};
+              border-color: transparent;
+            }
 
-              &:hover,
-              &:focus {
-                background: ${theme.buttonSecondaryBackground};
-                border: ${theme.buttonGhostBorder};
-                border-color: transparent;
-              }
-
-              &:active {
-                border: ${theme.buttonGhostBorder};
-                border-color: transparent;
-              }
-            `}
-        `};
+            &:active {
+              border: ${theme.buttonGhostBorder};
+              border-color: transparent;
+            }
+          `}
+        `
+      };
 
       /* ----------- Tertiary --------- */
-      ${buttonType === 'tertiary' &&
+      ${
+        buttonType === 'tertiary' &&
         css<StyledButtonProps>`
           background: ${theme.buttonTertiaryBackground};
           color: ${theme.buttonTertiaryColor};
@@ -172,28 +181,30 @@ export const StyledButton = styled.button<StyledButtonProps>`
           }
 
           ${customProps.ghost &&
-            css`
-              background: ${theme.buttonGhostBackground};
+          css`
+            background: ${theme.buttonGhostBackground};
+            border: ${theme.buttonGhostBorder};
+            border-color: ${theme.buttonTertiaryBackground};
+            color: ${theme.buttonTertiaryBackground};
+
+            &:hover,
+            &:focus {
+              background: ${theme.buttonTertiaryBackground};
               border: ${theme.buttonGhostBorder};
-              border-color: ${theme.buttonTertiaryBackground};
-              color: ${theme.buttonTertiaryBackground};
+              border-color: transparent;
+            }
 
-              &:hover,
-              &:focus {
-                background: ${theme.buttonTertiaryBackground};
-                border: ${theme.buttonGhostBorder};
-                border-color: transparent;
-              }
-
-              &:active {
-                border: ${theme.buttonGhostBorder};
-                border-color: transparent;
-              }
-            `}
-        `};
+            &:active {
+              border: ${theme.buttonGhostBorder};
+              border-color: transparent;
+            }
+          `}
+        `
+      };
     
     /* // ----------- Danger --------- // */
-    ${buttonType === 'danger' &&
+    ${
+      buttonType === 'danger' &&
       css<StyledButtonProps>`
         background: ${theme.buttonDangerBackground};
         border: ${theme.buttonDangerBorder};
@@ -212,28 +223,30 @@ export const StyledButton = styled.button<StyledButtonProps>`
         }
 
         ${customProps.ghost &&
-          css`
-            background: ${theme.buttonGhostBackground};
+        css`
+          background: ${theme.buttonGhostBackground};
+          border: ${theme.buttonGhostBorder};
+          border-color: ${theme.buttonDangerBackground};
+          color: ${theme.buttonDangerBackground};
+
+          &:hover,
+          &:focus {
+            background: ${theme.buttonDangerBackground};
             border: ${theme.buttonGhostBorder};
-            border-color: ${theme.buttonDangerBackground};
-            color: ${theme.buttonDangerBackground};
+            border-color: transparent;
+          }
 
-            &:hover,
-            &:focus {
-              background: ${theme.buttonDangerBackground};
-              border: ${theme.buttonGhostBorder};
-              border-color: transparent;
-            }
-
-            &:active {
-              border: ${theme.buttonGhostBorder};
-              border-color: transparent;
-            }
-          `};
-      `};
+          &:active {
+            border: ${theme.buttonGhostBorder};
+            border-color: transparent;
+          }
+        `};
+      `
+    };
     
     /* // ----------- Link --------- // */
-    ${buttonType === 'link' &&
+    ${
+      buttonType === 'link' &&
       css<StyledButtonProps>`
         background: ${theme.buttonLinkBackground};
         border: ${theme.buttonLinkBorder};
@@ -252,16 +265,20 @@ export const StyledButton = styled.button<StyledButtonProps>`
           color: ${theme.buttonLinkActiveColor};
           text-decoration: underline;
         }
-      `};
+      `
+    };
 
-    ${(disabled || customProps.loading) &&
+    ${
+      (disabled || customProps.loading) &&
       css`
         pointer-events: none;
         opacity: 0.5;
-      `};
+      `
+    };
 
     /* // ----------- Circle --------- // */
-    ${customProps.shape === 'circle' &&
+    ${
+      customProps.shape === 'circle' &&
       css<StyledButtonProps>`
       padding: 0;
       min-width: ${theme.buttonDefaultHeight};
@@ -269,24 +286,31 @@ export const StyledButton = styled.button<StyledButtonProps>`
       border-radius: 50%;
       
       // ----------- Size Small --------- //
-      ${customProps.size === 'small' &&
+      ${
+        customProps.size === 'small' &&
         css`
           min-width: ${theme.buttonSmallHeight};
-        `}
+        `
+      }
       
      // ----------- Size Large --------- //
-      ${customProps.size === 'large' &&
+      ${
+        customProps.size === 'large' &&
         css`
           min-width: ${theme.buttonLargeHeight};
-        `}
+        `
+      }
 
-      ${customProps.loading &&
+      ${
+        customProps.loading &&
         css`
           span {
             display: none;
           }
-        `};
-    `}
+        `
+      };
+    `
+    }
     
     span {
       pointer-events: none;

@@ -53,9 +53,9 @@ export interface CollapseProps {
 const Container = styled.div<{ disabled?: boolean }>`
   ${({ disabled, theme }) => css<{ disabled?: boolean }>`
     ${disabled &&
-      css`
-        pointer-events: none;
-      `}
+    css`
+      pointer-events: none;
+    `}
     &:hover,
     :focus-within {
       .rtk-collapse-header {

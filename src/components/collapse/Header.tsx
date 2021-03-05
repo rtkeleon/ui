@@ -69,10 +69,10 @@ const StyledHeader = styled.div<StyledHeaderProps>`
     }
 
     ${customProps.expanded &&
-      css`
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: 0;
-      `};
+    css`
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    `};
   `};
 `;
 

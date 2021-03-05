@@ -24,12 +24,12 @@ export const Container = styled.div`
 export const Label = styled(Typography.Label)<{ required?: boolean }>`
   ${({ theme, required }) => css<{ required?: boolean }>`
     ${required &&
-      css`
-        ::before {
-          content: '* ';
-          color: ${theme.colors.red};
-        }
-      `}
+    css`
+      ::before {
+        content: '* ';
+        color: ${theme.colors.red};
+      }
+    `}
   `};
 `;
 
@@ -63,22 +63,22 @@ export const Prefix = styled.div<{
     }
 
     ${size === 'small' &&
-      css`
-        height: ${theme.inputSmallHeight};
-        svg {
-          width: ${theme.inputSmallFontSize}px;
-          height: ${theme.inputSmallFontSize}px;
-        }
-      `}
+    css`
+      height: ${theme.inputSmallHeight};
+      svg {
+        width: ${theme.inputSmallFontSize}px;
+        height: ${theme.inputSmallFontSize}px;
+      }
+    `}
 
     ${size === 'large' &&
-      css`
-        height: ${theme.inputLargeHeight};
-        svg {
-          width: ${theme.inputLargeFontSize}px;
-          height: ${theme.inputLargeFontSize}px;
-        }
-      `}
+    css`
+      height: ${theme.inputLargeHeight};
+      svg {
+        width: ${theme.inputLargeFontSize}px;
+        height: ${theme.inputLargeFontSize}px;
+      }
+    `}
   `};
 `;
 
@@ -107,25 +107,32 @@ const inputStyles = css<StyledInputProps>`
     
     transition: border ${theme.animationTimeFast}s;
     
-    ${inputSize === 'small' &&
+    ${
+      inputSize === 'small' &&
       css`
         height: ${theme.inputSmallHeight};
         font-size: ${theme.inputSmallFontSize}px;
-      `}
+      `
+    }
     
-    ${inputSize === 'large' &&
+    ${
+      inputSize === 'large' &&
       css`
         height: ${theme.inputLargeHeight};
         font-size: ${theme.inputLargeFontSize}px;
-      `}
-    ${type === 'textarea' &&
+      `
+    }
+    ${
+      type === 'textarea' &&
       css`
         height: 6em;
         padding: ${theme.inputTextAreaPadding};
         resize: vertical;
-      `}
+      `
+    }
     
-    ${borderType === 'bottom' &&
+    ${
+      borderType === 'bottom' &&
       css`
         padding: 10px 5px;
         background: transparent;
@@ -133,33 +140,44 @@ const inputStyles = css<StyledInputProps>`
         border-radius: 0;
         border-bottom: ${theme.inputBorder};
         border-color: ${theme.inputBorderColor};
-      `};
+      `
+    };
     
-    ${borderType === 'none' &&
+    ${
+      borderType === 'none' &&
       css`
         padding: 10px 0;
         background: transparent;
         border: none;
         color: ${theme.inputColor};
-      `};
-    ${status === 'error' &&
+      `
+    };
+    ${
+      status === 'error' &&
       css`
         border-color: ${theme.inputStatusErrorBorderColor};
-      `};
-    ${status === 'success' &&
+      `
+    };
+    ${
+      status === 'success' &&
       css`
         border-color: ${theme.inputStatusSuccessBorderColor};
-      `};
+      `
+    };
       
-    ${status === 'warning' &&
+    ${
+      status === 'warning' &&
       css`
         border-color: ${theme.inputStatusWarningBorderColor};
-      `};
+      `
+    };
     
-    ${status === 'loading' &&
+    ${
+      status === 'loading' &&
       css`
         border-color: ${theme.inputStatusLoadingBorderColor};
-      `};
+      `
+    };
     &:read-only {
       cursor: pointer;
     }
@@ -173,16 +191,20 @@ const inputStyles = css<StyledInputProps>`
     }
     &:focus {
       border-color: ${theme.inputFocusBorderColor};
-      ${borderType === 'bottom' &&
+      ${
+        borderType === 'bottom' &&
         css`
           border: none;
           border-bottom: 1px solid ${theme.inputFocusBorderColor};
           border-radius: 0;
-        `};
-      ${borderType === 'none' &&
+        `
+      };
+      ${
+        borderType === 'none' &&
         css`
           border: none;
-        `};
+        `
+      };
       outline: none;
     }
   `};

@@ -1,3 +1,6 @@
+// eslint-disable-next-line
+import * as React from 'react';
+
 import { Title, TitleProps, Level } from './Title';
 
 import { Subtitle, SubtitleProps } from './Subtitle';
@@ -16,7 +19,7 @@ export const Typography = {
   Label,
 };
 
-export {
+export type {
   TitleProps,
   SubtitleProps,
   BodyProps,

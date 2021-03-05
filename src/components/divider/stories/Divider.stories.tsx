@@ -1,7 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { Modal } from '../../modal/Modal';
-import { withKnobs, select } from '@storybook/addon-knobs';
 
 // @ts-ignore
 import mdx from './Divider.mdx';
@@ -81,21 +80,7 @@ export const horizontal = () => {
         <Ulist>
           <li>item 1 item 1</li>
           <li>item 2</li>
-          <Divider
-            component="li"
-            margin={select(
-              'Margin',
-              ['5px', '10px', '20px', '30px', '40px'],
-              '20px',
-              'Margin'
-            )}
-            thickness={select(
-              'Thickness',
-              ['1px', '2px', '3px', '4px'],
-              '1px',
-              'Thickness'
-            )}
-          />
+          <Divider component="li" margin={'5px'} thickness={'5px'} />
           <li>item 3</li>
           <li>item 4</li>
           <li>item 5</li>
@@ -112,21 +97,7 @@ export const vertical = () => {
         <Rect>A</Rect>
         <Rect>B</Rect>
         <Rect>C</Rect>
-        <Divider
-          orientation="vertical"
-          margin={select(
-            'Margin',
-            ['5px', '10px', '20px', '30px', '40px'],
-            '20px',
-            'Margin'
-          )}
-          thickness={select(
-            'Thickness',
-            ['1px', '2px', '3px', '4px'],
-            '1px',
-            'Thickness'
-          )}
-        />
+        <Divider orientation="vertical" margin={'5px'} thickness={'5px'} />
         <Rect>D</Rect>
       </Container>
 
@@ -139,18 +110,8 @@ export const vertical = () => {
           <Divider
             component="li"
             orientation="vertical"
-            margin={select(
-              'Margin',
-              ['5px', '10px', '20px', '30px', '40px'],
-              '20px',
-              'Margin'
-            )}
-            thickness={select(
-              'Thickness',
-              ['1px', '2px', '3px', '4px'],
-              '1px',
-              'Thickness'
-            )}
+            margin={'5px'}
+            thickness={'5px'}
           />
           <li>Item 3</li>
         </UlistHorizontal>
@@ -185,35 +146,9 @@ export const modal = () => {
         >
           <ModalContent>
             <div>Some content here</div>
-            <Divider
-              margin={select(
-                'Margin',
-                ['5px', '10px', '20px', '30px', '40px'],
-                '5px',
-                'Margin'
-              )}
-              thickness={select(
-                'Thickness',
-                ['1px', '2px', '3px', '4px'],
-                '1px',
-                'Thickness'
-              )}
-            />
+            <Divider margin={'5px'} thickness={'5px'} />
             <div>More content here</div>
-            <Divider
-              margin={select(
-                'Margin',
-                ['5px', '10px', '20px', '30px', '40px'],
-                '5px',
-                'Margin'
-              )}
-              thickness={select(
-                'Thickness',
-                ['1px', '2px', '3px', '4px'],
-                '1px',
-                'Thickness'
-              )}
-            />
+            <Divider margin={'5px'} thickness={'5px'} />
             <div>More content here</div>
           </ModalContent>
         </Modal>
@@ -229,19 +164,9 @@ export const text = () => {
         <Divider
           text="Some text"
           textAlign="left"
-          thickness={select(
-            'Thickness',
-            ['1px', '2px', '3px', '4px'],
-            '1px',
-            'Thickness'
-          )}
+          thickness={'5px'}
           bgColor="#f1f1f1"
-          fontSize={select(
-            'FontSize (rem)',
-            [0.5, 0.8, 1, 1.1, 1.2, 1.3, 1.4, 2, 3, 4],
-            1,
-            'FontSize'
-          )}
+          fontSize={1}
         />
       </ContainerText>
 
@@ -251,18 +176,8 @@ export const text = () => {
         <Divider
           text="Some text"
           bgColor="#f1f1f1"
-          thickness={select(
-            'Thickness',
-            ['1px', '2px', '3px', '4px'],
-            '1px',
-            'Thickness'
-          )}
-          fontSize={select(
-            'FontSize (rem)',
-            [0.5, 0.8, 1, 1.1, 1.2, 1.3, 1.4, 2, 3, 4],
-            1,
-            'FontSize'
-          )}
+          thickness={'5px'}
+          fontSize={1}
         />
       </ContainerText>
 
@@ -272,38 +187,12 @@ export const text = () => {
         <Divider
           text="Some text"
           textAlign="right"
-          thickness={select(
-            'Thickness',
-            ['1px', '2px', '3px', '4px'],
-            '1px',
-            'Thickness'
-          )}
+          thickness={'5px'}
           bgColor="#f1f1f1"
-          fontSize={select(
-            'FontSize (rem)',
-            [0.5, 0.8, 1, 1.1, 1.2, 1.3, 1.4, 2, 3, 4],
-            1,
-            'FontSize'
-          )}
+          fontSize={1}
           className="my-divider"
         />
       </ContainerText>
     </Parent>
   );
-};
-
-text.story = {
-  decorators: [withKnobs],
-};
-
-modal.story = {
-  decorators: [withKnobs],
-};
-
-horizontal.story = {
-  decorators: [withKnobs],
-};
-
-vertical.story = {
-  decorators: [withKnobs],
 };

@@ -111,7 +111,7 @@ export const Checkbox: React.FunctionComponent<CheckboxProps> = ({
   const theme = useTheme();
 
   const handleChange = React.useCallback(
-    e => {
+    (e) => {
       const { name, checked } = e.target;
 
       if (onChange) {

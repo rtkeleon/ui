@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -10,7 +10,6 @@ import { faSortUp } from '@fortawesome/free-solid-svg-icons/faSortUp';
 import { useTheme } from '../../hooks/useTheme';
 
 export type SortState = 'none' | 'asc' | 'dsc';
-
 export interface SortProps {
   state: SortState;
 }
