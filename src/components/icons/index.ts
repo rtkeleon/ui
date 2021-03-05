@@ -1,3 +1,8 @@
+// eslint-disable-next-line
+import * as React from 'react';
+
+import { IconProps } from './types';
+
 import AngleLeft from './AngleLeft';
 import AngleRight from './AngleRight';
 import ArrowDown from './ArrowDown';
@@ -39,7 +44,7 @@ import Plus from './Plus';
 import PowerOff from './PowerOff';
 import Search from './Search';
 import ShareSquare from './ShareSquare';
-import Sort from './Sort';
+import Sort, { SortState, SortProps } from './Sort';
 import StickyNote from './StickyNote';
 import SyncAlt from './SyncAlt';
 import Table from './Table';
@@ -106,6 +111,4 @@ export const Icon = {
   WindowMaximize,
 };
 
-export { SortState } from './Sort';
-
-export { IconProps } from './types';
+export { IconProps, SortState, SortProps };

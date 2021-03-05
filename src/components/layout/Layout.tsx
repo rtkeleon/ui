@@ -41,9 +41,9 @@ const StyledLayout = styled.div<StyledLayoutProps>`
     min-height: 0px;
 
     ${hasSider &&
-      css`
-        flex-direction: row;
-      `}
+    css`
+      flex-direction: row;
+    `}
   `}
 `;
 

@@ -50,11 +50,7 @@ describe('Table', () => {
     );
 
     expect(
-      wrapper
-        .find('Body__StyledBody')
-        .at(1)
-        .childAt(0)
-        .text()
+      wrapper.find('Body__StyledBody').at(1).childAt(0).text()
     ).toStrictEqual('61');
   });
 
@@ -114,24 +110,15 @@ describe('Table', () => {
       />
     );
 
-    wrapper
-      .find('HeaderCell__StyledCell')
-      .at(0)
-      .simulate('click');
+    wrapper.find('HeaderCell__StyledCell').at(0).simulate('click');
 
     expect(onSortMock).toBeCalledWith('name', 'asc');
 
-    wrapper
-      .find('HeaderCell__StyledCell')
-      .at(0)
-      .simulate('click');
+    wrapper.find('HeaderCell__StyledCell').at(0).simulate('click');
 
     expect(onSortMock).toBeCalledWith('name', 'dsc');
 
-    wrapper
-      .find('HeaderCell__StyledCell')
-      .at(0)
-      .simulate('click');
+    wrapper.find('HeaderCell__StyledCell').at(0).simulate('click');
 
     expect(onSortMock).toBeCalledWith('name', 'none');
   });
@@ -143,11 +130,7 @@ describe('Table', () => {
       );
 
       expect(
-        wrapper
-          .find('HeaderCell__SubtitleContent')
-          .at(0)
-          .childAt(0)
-          .text()
+        wrapper.find('HeaderCell__SubtitleContent').at(0).childAt(0).text()
       ).toStrictEqual('Name');
     });
 
@@ -156,12 +139,7 @@ describe('Table', () => {
         <Table dataUniqueKey={'name'} columns={columns} data={data} />
       );
 
-      expect(
-        wrapper
-          .find('th')
-          .at(0)
-          .prop('width')
-      ).toStrictEqual(10);
+      expect(wrapper.find('th').at(0).prop('width')).toStrictEqual(10);
     });
 
     it('sets the sortable prop', () => {
@@ -170,16 +148,10 @@ describe('Table', () => {
       );
 
       expect(
-        wrapper
-          .find('HeaderCell__StyledCell')
-          .at(0)
-          .prop('sortable')
+        wrapper.find('HeaderCell__StyledCell').at(0).prop('sortable')
       ).toBe(true);
       expect(
-        wrapper
-          .find('HeaderCell__StyledCell')
-          .at(0)
-          .find('Sort')
+        wrapper.find('HeaderCell__StyledCell').at(0).find('Sort')
       ).toExist();
     });
   });

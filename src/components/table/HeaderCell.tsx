@@ -47,12 +47,12 @@ const StyledCell = styled(Cell)<StyledCellProps>`
     transition: background ${theme.animationTimeFast}s ease-in-out;
 
     ${sortable &&
-      css`
-        &:hover {
-          cursor: pointer;
-          background: ${theme.colors.hoverBackground};
-        }
-      `}
+    css`
+      &:hover {
+        cursor: pointer;
+        background: ${theme.colors.hoverBackground};
+      }
+    `}
   `}
 `;
 

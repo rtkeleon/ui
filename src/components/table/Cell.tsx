@@ -31,9 +31,9 @@ const StyledCell = styled.div<StyledCellProps>`
     padding: ${theme.tableBodyCellPadding};
 
     ${header &&
-      css`
-        padding: ${theme.tableHeadCellPadding};
-      `}
+    css`
+      padding: ${theme.tableHeadCellPadding};
+    `}
   `}
 `;
 
@@ -46,7 +46,7 @@ export const Cell: React.FunctionComponent<CellProps> = ({
   const theme = useTheme();
 
   const handleClick = React.useCallback(
-    e => {
+    (e) => {
       if (onClick) {
         onClick(e);
       }

@@ -35,37 +35,45 @@ export const TooltipContent = styled.div`
   >`
     position: relative;
 
-    ${(placement === 'top' ||
-      placement === 'topLeft' ||
-      placement === 'topRight') &&
+    ${
+      (placement === 'top' ||
+        placement === 'topLeft' ||
+        placement === 'topRight') &&
       css`
         padding-bottom: ${`calc(${theme.tooltipArrowSize} / 2)`};
         margin-bottom: ${gap == null ? theme.tooltipMargin : gap};
-      `}
+      `
+    }
 
-    ${(placement === 'right' ||
-      placement === 'rightTop' ||
-      placement === 'rightBottom') &&
+    ${
+      (placement === 'right' ||
+        placement === 'rightTop' ||
+        placement === 'rightBottom') &&
       css`
         padding-left: ${`calc(${theme.tooltipArrowSize} / 2)`};
         margin-left: ${gap == null ? theme.tooltipMargin : gap};
-      `}
+      `
+    }
 
-    ${(placement === 'bottom' ||
-      placement === 'bottomRight' ||
-      placement === 'bottomLeft') &&
+    ${
+      (placement === 'bottom' ||
+        placement === 'bottomRight' ||
+        placement === 'bottomLeft') &&
       css`
         padding-top: ${`calc(${theme.tooltipArrowSize} / 2)`};
         margin-top: ${gap == null ? theme.tooltipMargin : gap};
-      `}
+      `
+    }
 
-    ${(placement === 'left' ||
-      placement === 'leftTop' ||
-      placement === 'leftBottom') &&
+    ${
+      (placement === 'left' ||
+        placement === 'leftTop' ||
+        placement === 'leftBottom') &&
       css`
         padding-right: ${`calc(${theme.tooltipArrowSize} / 2)`};
         margin-right: ${gap == null ? theme.tooltipMargin : gap};
-      `}
+      `
+    }
   `}
 `;
 
@@ -88,120 +96,152 @@ export const Arrow = styled.div<ArrowProps>`
     transform: rotate(45deg);
 
     /* Arrow pointing down */
-    ${(placement === 'top' ||
-      placement === 'topLeft' ||
-      placement === 'topRight') &&
+    ${
+      (placement === 'top' ||
+        placement === 'topLeft' ||
+        placement === 'topRight') &&
       css`
         border-right: ${theme.tooltipBorder};
         border-bottom: ${theme.tooltipBorder};
         border-color: ${theme.tooltipBorderColor};
-      `}
+      `
+    }
 
     /* Arrow pointing left */
-    ${(placement === 'right' ||
-      placement === 'rightTop' ||
-      placement === 'rightBottom') &&
+    ${
+      (placement === 'right' ||
+        placement === 'rightTop' ||
+        placement === 'rightBottom') &&
       css`
         border-bottom: ${theme.tooltipBorder};
         border-left: ${theme.tooltipBorder};
         border-color: ${theme.tooltipBorderColor};
-      `}
+      `
+    }
 
     /* Arrow pointing up */
-    ${(placement === 'bottom' ||
-      placement === 'bottomRight' ||
-      placement === 'bottomLeft') &&
+    ${
+      (placement === 'bottom' ||
+        placement === 'bottomRight' ||
+        placement === 'bottomLeft') &&
       css`
         border-top: ${theme.tooltipBorder};
         border-left: ${theme.tooltipBorder};
         border-color: ${theme.tooltipBorderColor};
-      `}
+      `
+    }
 
     /* Arrow pointing right */
-    ${(placement === 'left' ||
-      placement === 'leftTop' ||
-      placement === 'leftBottom') &&
+    ${
+      (placement === 'left' ||
+        placement === 'leftTop' ||
+        placement === 'leftBottom') &&
       css`
         border-top: ${theme.tooltipBorder};
         border-right: ${theme.tooltipBorder};
         border-color: ${theme.tooltipBorderColor};
-      `}
+      `
+    }
 
     /* top arrow placements */
-    ${placement === 'top' &&
+    ${
+      placement === 'top' &&
       css`
         bottom: 0px;
         left: calc(50% - 8px);
-      `}
+      `
+    }
 
-    ${placement === 'topLeft' &&
+    ${
+      placement === 'topLeft' &&
       css`
         bottom: 0px;
         left: 20%;
-      `}
+      `
+    }
 
-    ${placement === 'topRight' &&
+    ${
+      placement === 'topRight' &&
       css`
         bottom: 0px;
         right: 20%;
-      `}
+      `
+    }
 
     /* right arrow placements */
-    ${placement === 'rightTop' &&
+    ${
+      placement === 'rightTop' &&
       css`
         top: 10%;
         left: 0px;
-      `}
+      `
+    }
 
-    ${placement === 'right' &&
+    ${
+      placement === 'right' &&
       css`
         top: calc(50% - 8px);
         left: 0px;
-      `}
+      `
+    }
 
-    ${placement === 'rightBottom' &&
+    ${
+      placement === 'rightBottom' &&
       css`
         bottom: 10%;
         left: 0px;
-      `}
+      `
+    }
 
     /* bottom arrow placements */
-    ${placement === 'bottomRight' &&
+    ${
+      placement === 'bottomRight' &&
       css`
         top: 0px;
         right: 20%;
-      `}
+      `
+    }
 
-    ${placement === 'bottom' &&
+    ${
+      placement === 'bottom' &&
       css`
         top: 0px;
         left: calc(50% - 8px);
-      `}
+      `
+    }
 
-    ${placement === 'bottomLeft' &&
+    ${
+      placement === 'bottomLeft' &&
       css`
         top: 0px;
         left: 20%;
-      `}
+      `
+    }
 
     /* left arrow placements */
-    ${placement === 'leftBottom' &&
+    ${
+      placement === 'leftBottom' &&
       css`
         bottom: 10%;
         right: 0px;
-      `}
+      `
+    }
 
-    ${placement === 'left' &&
+    ${
+      placement === 'left' &&
       css`
         top: calc(50% - 8px);
         right: 0px;
-      `}
+      `
+    }
 
-    ${placement === 'leftTop' &&
+    ${
+      placement === 'leftTop' &&
       css`
         top: 10%;
         right: 0px;
-      `}
+      `
+    }
   `}
 `;
 

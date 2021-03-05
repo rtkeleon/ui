@@ -43,7 +43,7 @@ export const Header = <T extends any = any>(props: HeaderProps<T>) => {
   return (
     <thead>
       <tr>
-        {columns.map(col => (
+        {columns.map((col) => (
           <TH key={col.key} theme={theme} width={col.width}>
             <HeaderCell<T>
               header

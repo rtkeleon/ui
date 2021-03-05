@@ -42,17 +42,17 @@ const Container = styled.div`
     }
 
     ${isSelected &&
-      css`
-        .rtk-type-body {
-          color: ${theme.menuItemHoverColor};
-        }
-      `}
+    css`
+      .rtk-type-body {
+        color: ${theme.menuItemHoverColor};
+      }
+    `}
 
     ${disabled &&
-      css`
-        cursor: default;
-        pointer-events: none;
-      `}
+    css`
+      cursor: default;
+      pointer-events: none;
+    `}
   `}
 `;
 

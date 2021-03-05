@@ -10,7 +10,6 @@ import { faSortUp } from '@fortawesome/free-solid-svg-icons/faSortUp';
 import { useTheme } from '../../hooks/useTheme';
 
 export type SortState = 'none' | 'asc' | 'dsc';
-
 export interface SortProps {
   state: SortState;
 }
