@@ -11,6 +11,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+      - name: Verify PR is labeled for semver
+        uses: jefflinse/pr-semver-bump@v1.0.0
+        with:
+          mode: validate
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          major-label: breaking
+          minor-label: feature
+          patch-label: patch
+          require-release-notes: false
+          with-v: true
       - uses: actions/setup-node@v1
         with:
           node-version: '12.x'
