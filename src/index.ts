@@ -205,7 +205,7 @@ export {
   // radio
   Radio,
   // select
-  Select,
+  // Select,
   // table
   Table,
   // tabs
@@ -272,7 +272,7 @@ export type {
   RadioProps,
   RadioItemProps,
   RadioFunctionComponent,
-  SelectProps,
+  // SelectProps,
   FormItemProps,
   Status,
   TableProps,
