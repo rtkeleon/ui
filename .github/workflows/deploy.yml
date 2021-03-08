@@ -11,6 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Verify PR is labeled for semver
+        id: semver-bump
         uses: jefflinse/pr-semver-bump@v1.0.0
         with:
           mode: bump
@@ -27,6 +28,8 @@ jobs:
           registry-url: https://npm.pkg.github.com/
       - name: Install
         run: npm install
+      - name: Update package.json version
+        run: npm --no-git-tag-version version ${{steps.semver-bump.outputs.version}}
       - name: Build
         run: npm run build
       - name: Publish to github packages
