@@ -4,7 +4,7 @@
 
 Using npm or yarn.
 ```
-npm install --save @rtkwlf/ui react react-dom react-is
+npm install --save @rtkwlf/ui react react-dom react-is react-select styled-components
 ```
 or
 ```
